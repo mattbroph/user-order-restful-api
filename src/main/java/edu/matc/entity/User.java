@@ -12,6 +12,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String userName;
+    private String dateOfBirth;
     private int id;
 
 
@@ -28,12 +29,14 @@ public class User {
      * @param lastName  the last name
      * @param userName  the user name
      * @param id        the id
+     * @param dateOfBirth the date of birth
      */
-    public User(String firstName, String lastName, String userName, int id) {
+    public User(String firstName, String lastName, String userName, int id, String dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.id = id;
+        this.dateOfBirth = dateOfBirth;
     }
 
 
@@ -109,12 +112,34 @@ public class User {
         this.id = id;
     }
 
+
+    /**
+     * Gets the date of birth.
+     *
+     * @return the date of birth
+     */
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    /**
+     * Sets date of birth.
+     *
+     * @param dateOfBirth the date of birth
+     */
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+
+
     @Override
     public String toString() {
         return "User{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
                 '}';
     }
 
