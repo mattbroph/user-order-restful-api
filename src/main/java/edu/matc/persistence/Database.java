@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.*;
 import java.util.Properties;
 /**
  * Provides access to the database
@@ -17,7 +18,7 @@ import java.util.Properties;
  * @author Alex M - Fall 2019 - added multi-line sql capability
  */
 
-public class Database {
+public class Database implements PropertiesLoader {
 
     // create an object of the class Database
     private static Database instance = new Database();
@@ -32,20 +33,13 @@ public class Database {
 
     }
 
+
+
     /** load the properties file containing the driver, connection url, userid and pwd.
-     * TODO this would be improved by using properties loader interface provided in adv java
      */
     private void loadProperties() {
-        properties = new Properties();
-        try {
-            properties.load (this.getClass().getResourceAsStream("/database.properties"));
-        } catch (IOException ioe) {
-            System.out.println("Database.loadProperties()...Cannot load the properties file");
-            ioe.printStackTrace();
-        } catch (Exception e) {
-            System.out.println("Database.loadProperties()..." + e);
-            e.printStackTrace();
-        }
+
+        properties = loadProperties("/database.properties");
 
     }
 
