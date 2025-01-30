@@ -7,8 +7,8 @@
         <h2>Use the form below to search by last name</h2>
         <form action="searchUser" method="GET">
             <%-- Search Term --%>
-            <label for="searchTerm">Search Term</label>
-            <input type="text" name="searchTerm" id="searchTerm">
+            <label for="searchTerm">Last Name</label>
+            <input type="text" name="searchTerm" id="searchTerm" required>
             <br>
             <input type="submit" name="" value="Search" />
         </form>
