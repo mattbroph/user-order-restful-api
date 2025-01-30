@@ -9,6 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.time.LocalDate;
+
+
 /**
  * Access users in the user table.
  *
@@ -43,11 +46,22 @@ public class UserData {
     //TODO add a method or methods to return a users based on search criteria
 
     private User createUserFromResults(ResultSet results) throws SQLException {
+
+        String dateOfBirth;
+        LocalDate formattedDate;
+
         User user = new User();
         user.setFirstName(results.getString("first_name"));
         user.setLastName(results.getString("last_name"));
         user.setUserName(results.getString("user_name"));
-        user.setDateOfBirth(results.getString("date_of_birth"));
+
+        // Store the result as a string so you can convert it to LocalDate
+        dateOfBirth = results.getString("date_of_birth");
+        // Convert to LocalDate
+        formattedDate = LocalDate.parse(dateOfBirth);
+        // Set the user instance variable
+        user.setDateOfBirth(formattedDate);
+
         return user;
     }
 

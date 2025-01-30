@@ -1,7 +1,8 @@
 package edu.matc.entity;
 
-// TODO Add instance variable for the date of birth
-// TODO Add a calculation for the user's age. Age should not be stored, it should be calculated only.
+import javax.ejb.Local;
+import java.time.LocalDate;
+import java.time.Period;
 
 /**
  * A class to represent a user.
@@ -12,7 +13,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String userName;
-    private String dateOfBirth;
+    private LocalDate dateOfBirth;
     private int id;
 
 
@@ -31,7 +32,7 @@ public class User {
      * @param id        the id
      * @param dateOfBirth the date of birth
      */
-    public User(String firstName, String lastName, String userName, int id, String dateOfBirth) {
+    public User(String firstName, String lastName, String userName, int id, LocalDate dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -118,7 +119,7 @@ public class User {
      *
      * @return the date of birth
      */
-    public String getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -127,7 +128,7 @@ public class User {
      *
      * @param dateOfBirth the date of birth
      */
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -142,6 +143,22 @@ public class User {
                 ", dateOfBirth='" + dateOfBirth + '\'' +
                 '}';
     }
+
+    /** TODO Add a calculation for the user's age. Age should not be stored,
+     *  it should be calculated only.
+     * Calculates the user's age
+     */
+    public void calculateAge() {
+
+        // Get today's date
+        LocalDate currentDate = LocalDate.now();
+        // Derive a Period and store the value
+        Period userAgePeriod = Period.between(dateOfBirth, currentDate);
+        // Derive the years from the Period and store as an int
+        int userAge = userAgePeriod.getYears();
+
+    }
+
 
 
 }
