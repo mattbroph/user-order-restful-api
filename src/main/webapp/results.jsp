@@ -1,9 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@include file="head.jsp"%>
+<c:import url="head.jsp" />
 
 <html><body>
 
-<%--TODO Pretty up the results!--%>
 <div class="container-fluid">
     <h2>Search Results: </h2>
     <c:if test="${not empty users}">
