@@ -2,10 +2,7 @@ package edu.matc.persistence;
 
 import edu.matc.entity.User;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,17 +21,21 @@ public class UserData {
 
         String sql = "SELECT * FROM users";
 
-        users = getUsersData(sql, users);
+        users = getUsersData(sql, users, null);
 
         return users;
     }
 
-    //TODO add a method or methods to return a users based on search criteria
+    /**
+     *
+     * @param searchTerm
+     * @return
+     */
     public List<User> getSearchedUser(String searchTerm) {
 
         List<User> users = new ArrayList<User>();
 
-        String sql = "SELECT * FROM users WHERE last_name = \"" + searchTerm + "\"";
+        String sql = "SELECT * FROM users WHERE last_name = ?";
 
         users = getUsersData(sql, users, searchTerm);
 
@@ -43,10 +44,8 @@ public class UserData {
 
         /**
         *
-        * Referenced https://stackoverflow.com/questions/965690/how-do-i-use-optional-parameters-in-java
-        * for Varargs (optional parameter).
         */
-        public List<User> getUsersData(String sql, List<User> users, String... searchTerm) {
+        public List<User> getUsersData(String sql, List<User> users, String searchTerm) {
 
             Database database = Database.getInstance();
             Connection connection = null;
@@ -54,17 +53,24 @@ public class UserData {
             try {
                 database.connect();
                 connection = database.getConnection();
-                Statement selectStatement = connection.createStatement();
-                ResultSet results = selectStatement.executeQuery(sql);
-                while (results.next()) {
-                    User employee = createUserFromResults(results);
-                    users.add(employee);
+
+                try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                    if (searchTerm != null) {
+                        preparedStatement.setString(1, searchTerm);
+                    }
+                    try (ResultSet results = preparedStatement.executeQuery()) {
+                        while (results.next()) {
+                            User employee = createUserFromResults(results);
+                            users.add(employee);
+                        }
+                    }
                 }
+
                 database.disconnect();
             } catch (SQLException e) {
-                System.out.println("SearchUser.getAllUsers()...SQL Exception: " + e);
+                System.out.println("SearchUser.getUserData()...SQL Exception: " + e);
             } catch (Exception e) {
-                System.out.println("SearchUser.getAllUsers()...Exception: " + e);
+                System.out.println("SearchUser.getUserData()...Exception: " + e);
             }
 
             return users;
