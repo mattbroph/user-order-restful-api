@@ -21,53 +21,53 @@ public class UserData {
 
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<User>();
-        Database database = Database.getInstance();
-        Connection connection = null;
+
         String sql = "SELECT * FROM users";
 
-        try {
-            database.connect();
-            connection = database.getConnection();
-            Statement selectStatement = connection.createStatement();
-            ResultSet results = selectStatement.executeQuery(sql);
-            while (results.next()) {
-                User employee = createUserFromResults(results);
-                users.add(employee);
-            }
-            database.disconnect();
-        } catch (SQLException e) {
-            System.out.println("SearchUser.getAllUsers()...SQL Exception: " + e);
-        } catch (Exception e) {
-            System.out.println("SearchUser.getAllUsers()...Exception: " + e);
-        }
+        users = getUsersData(sql, users);
+
         return users;
     }
 
     //TODO add a method or methods to return a users based on search criteria
     public List<User> getSearchedUser(String searchTerm) {
 
-        // Connect to the database and prepare the sql statement
         List<User> users = new ArrayList<User>();
-        Database database = Database.getInstance();
-        Connection connection = null;
+
         String sql = "SELECT * FROM users WHERE last_name = \"" + searchTerm + "\"";
 
-        try {
-            database.connect();
-            connection = database.getConnection();
-            Statement selectStatement = connection.createStatement();
-            ResultSet results = selectStatement.executeQuery(sql);
-            while (results.next()) {
-                User employee = createUserFromResults(results);
-                users.add(employee);
-            }
-            database.disconnect();
-        } catch (SQLException e) {
-            System.out.println("SearchUser.getAllUsers()...SQL Exception: " + e);
-        } catch (Exception e) {
-            System.out.println("SearchUser.getAllUsers()...Exception: " + e);
-        }
+        users = getUsersData(sql, users, searchTerm);
+
         return users;
+        }
+
+        /**
+        *
+        * Referenced https://stackoverflow.com/questions/965690/how-do-i-use-optional-parameters-in-java
+        * for Varargs (optional parameter).
+        */
+        public List<User> getUsersData(String sql, List<User> users, String... searchTerm) {
+
+            Database database = Database.getInstance();
+            Connection connection = null;
+
+            try {
+                database.connect();
+                connection = database.getConnection();
+                Statement selectStatement = connection.createStatement();
+                ResultSet results = selectStatement.executeQuery(sql);
+                while (results.next()) {
+                    User employee = createUserFromResults(results);
+                    users.add(employee);
+                }
+                database.disconnect();
+            } catch (SQLException e) {
+                System.out.println("SearchUser.getAllUsers()...SQL Exception: " + e);
+            } catch (Exception e) {
+                System.out.println("SearchUser.getAllUsers()...Exception: " + e);
+            }
+
+            return users;
         }
 
 
