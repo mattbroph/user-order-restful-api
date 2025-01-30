@@ -26,8 +26,16 @@ public class SearchUser extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         UserData userData = new UserData();
-        User user = new User();
-        req.setAttribute("users", userData.getAllUsers());
+        String searchTerm = req.getParameter("searchTerm");
+
+        // if search term is empty, then get all users, if not then use the search criteria
+
+        if (searchTerm != null) {
+            req.setAttribute("users", userData.getSearchedUser(searchTerm));
+        } else {
+            req.setAttribute("users", userData.getAllUsers());
+        }
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");
         dispatcher.forward(req, resp);
     }
