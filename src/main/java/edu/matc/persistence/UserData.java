@@ -44,18 +44,40 @@ public class UserData {
     }
 
     //TODO add a method or methods to return a users based on search criteria
-    public int getSearchedUser(String searchTerm) {
+    public List<User> getSearchedUser(String searchTerm) {
 
-        // delete this, just returning to make compiler happy
-        return 2;
-    }
+        // Connect to the database and prepare the sql statement
+        List<User> users = new ArrayList<User>();
+        Database database = Database.getInstance();
+        Connection connection = null;
+        String sql = "SELECT * FROM users WHERE last_name = \"" + searchTerm + "\"";
+
+        try {
+            database.connect();
+            connection = database.getConnection();
+            Statement selectStatement = connection.createStatement();
+            ResultSet results = selectStatement.executeQuery(sql);
+            while (results.next()) {
+                User employee = createUserFromResults(results);
+                users.add(employee);
+            }
+            database.disconnect();
+        } catch (SQLException e) {
+            System.out.println("SearchUser.getAllUsers()...SQL Exception: " + e);
+        } catch (Exception e) {
+            System.out.println("SearchUser.getAllUsers()...Exception: " + e);
+        }
+        return users;
+        }
+
+
 
     private User createUserFromResults(ResultSet results) throws SQLException {
 
         String dateOfBirth;
         LocalDate formattedDate;
-
         User user = new User();
+
         user.setFirstName(results.getString("first_name"));
         user.setLastName(results.getString("last_name"));
         user.setUserName(results.getString("user_name"));
