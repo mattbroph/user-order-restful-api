@@ -35,6 +35,13 @@
       <version>${mysql-version}</version>
     </dependency>
 
+  <!-- Added JSTL dependency    -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
   </dependencies>
   <build>
     <finalName>userdisplayexercise</finalName>

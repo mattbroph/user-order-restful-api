@@ -15,6 +15,10 @@ public class User {
     private String userName;
     private LocalDate dateOfBirth;
     private int id;
+    /* Age will be calculated and passed back in getter.
+    * There is no setter so it is not stored (this is a requirement).
+    */
+    private int userAge;
 
 
     /**
@@ -144,11 +148,12 @@ public class User {
                 '}';
     }
 
-    /** TODO Add a calculation for the user's age. Age should not be stored,
-     *  it should be calculated only.
-     * Calculates the user's age
+    /** Calculates the user's age. Age should not be stored, it should be
+     *  calculated only.
+     *
+     * @return the user's age in years
      */
-    public void calculateAge() {
+    public int getUserAge() {
 
         // Get today's date
         LocalDate currentDate = LocalDate.now();
@@ -157,6 +162,7 @@ public class User {
         // Derive the years from the Period and store as an int
         int userAge = userAgePeriod.getYears();
 
+        return userAge;
     }
 
 
