@@ -44,6 +44,11 @@ public class UserData {
     }
 
     //TODO add a method or methods to return a users based on search criteria
+    public int getSearchedUser(String searchTerm) {
+
+        // delete this, just returning to make compiler happy
+        return 2;
+    }
 
     private User createUserFromResults(ResultSet results) throws SQLException {
 
