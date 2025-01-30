@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
+import edu.matc.entity.User;
+
 /**
  * A simple servlet to welcome the user.
  * @author pwaite
@@ -24,6 +26,7 @@ public class SearchUser extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         UserData userData = new UserData();
+        User user = new User();
         req.setAttribute("users", userData.getAllUsers());
         RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");
         dispatcher.forward(req, resp);
