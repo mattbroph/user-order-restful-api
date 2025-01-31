@@ -55,11 +55,11 @@ public class AddUser extends HttpServlet {
 
         // Provide a success or fail message for the db insert
         if (rowsAffected == 1) {
-            session.setAttribute("project4AddMessage",
-                    "Your employee was added to the database");
+            session.setAttribute("userAddMessage",
+                    "Your user was added to the database");
         } else {
-            session.setAttribute("project4AddMessage",
-                    "Something went wrong, your employee was not "
+            session.setAttribute("userAddMessage",
+                    "Something went wrong, your user was not "
                             + " added to the database");
         }
 
@@ -67,7 +67,6 @@ public class AddUser extends HttpServlet {
         // response.sendRedirect(url);
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);
         dispatcher.forward(request, response);
-
 
     }
 }

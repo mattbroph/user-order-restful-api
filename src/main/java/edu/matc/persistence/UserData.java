@@ -18,11 +18,8 @@ public class UserData {
 
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<User>();
-
         String sql = "SELECT * FROM users";
-
         users = getUsersData(sql, users, null);
-
         return users;
     }
 
@@ -32,13 +29,9 @@ public class UserData {
      * @return
      */
     public List<User> getSearchedUser(String searchTerm) {
-
         List<User> users = new ArrayList<User>();
-
         String sql = "SELECT * FROM users WHERE last_name = ?";
-
         users = getUsersData(sql, users, searchTerm);
-
         return users;
         }
 
@@ -76,6 +69,50 @@ public class UserData {
             return users;
         }
 
+
+    /** Adds a user to the user database
+     *
+     * @param firstName the user's first name
+     * @param lastName the user's last name
+     * @param userName the user's user name
+     * @param dateOfBirth the user's date of birth
+     * @return the number of rows inserted into the database
+     */
+        public int addUser(String firstName, String lastName, String userName,
+                 String dateOfBirth) {
+
+            Database database = Database.getInstance();
+            Connection connection = null;
+
+            String sql = "INSERT into users (first_name, last_name, user_name, "
+                    + "date_of_birth) VALUES (?, ?, ?, ?)";
+
+            int rowsAffected = 0;
+
+            try {
+                database.connect();
+                connection = database.getConnection();
+
+                try (PreparedStatement preparedStatement
+                             = connection.prepareStatement(sql)) {
+
+                    preparedStatement.setString(1, firstName);
+                    preparedStatement.setString(2, lastName);
+                    preparedStatement.setString(3, userName);
+                    preparedStatement.setString(4, dateOfBirth);
+
+                    rowsAffected = preparedStatement.executeUpdate();
+                }
+
+                database.disconnect();
+            } catch (SQLException e) {
+                System.out.println("SearchUser.getUserData()...SQL Exception: " + e);
+            } catch (Exception e) {
+                System.out.println("SearchUser.getUserData()...Exception: " + e);
+            }
+
+            return rowsAffected;
+        }
 
 
     private User createUserFromResults(ResultSet results) throws SQLException {
