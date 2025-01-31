@@ -6,7 +6,7 @@
 <body>
 
 <%-- Use this to force an exception and test the error page  --%>
-<%--<% throw new Exception("Forcing an exception to test custom error page"); %>--%>
+<% throw new Exception("Forcing an exception to test custom error page"); %>
 
 <div class="container-fluid">
 
