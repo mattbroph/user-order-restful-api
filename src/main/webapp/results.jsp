@@ -4,7 +4,18 @@
 <html><body>
 
 <div class="container-fluid">
-    <h2>Search Results: </h2>
+
+    <%-- If a user was just added, display success or failure message --%>
+
+    <a href="${pageContext.request.contextPath}">Go Home</a>
+    <br>
+
+    <c:if test="${not empty userAddMessage}">
+        <h2>${userAddMessage}</h2>
+    </c:if>
+
+    <h2>Search Results:</h2>
+
     <c:if test="${not empty users}">
         <table>
             <tr>
@@ -27,6 +38,11 @@
 
     <c:if test="${empty users}">
         <h2>No users were found</h2>
+    </c:if>
+
+    <%-- Clear userAddMessage --%>
+    <c:if test="${not empty userAddMessage}">
+        <c:remove var="userAddMessage" scope="session" />
     </c:if>
 
 

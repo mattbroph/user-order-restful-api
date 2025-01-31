@@ -57,6 +57,7 @@ public class AddUser extends HttpServlet {
         if (rowsAffected == 1) {
             session.setAttribute("userAddMessage",
                     "Your user was added to the database");
+            request.setAttribute("users", userData.getSearchedUser(lastName));
         } else {
             session.setAttribute("userAddMessage",
                     "Something went wrong, your user was not "
