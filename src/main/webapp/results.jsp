@@ -22,6 +22,7 @@
     <c:if test="${not empty users}">
         <table>
             <tr>
+                <th>User ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>User Name</th>
@@ -36,6 +37,7 @@
             <c:forEach var="user" items="${users}" varStatus="loop">
             <%-- Label rows odd or even and use it for css selector--%>
                 <tr class="${loop.index % 2 == 0 ? 'even' : 'odd'}">
+                    <td>${user.id}</td>
                     <td>${user.firstName}</td>
                     <td>${user.lastName}</td>
                     <td>${user.userName}</td>

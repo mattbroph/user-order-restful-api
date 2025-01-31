@@ -141,6 +141,7 @@ public class UserData {
         user.setFirstName(results.getString("first_name"));
         user.setLastName(results.getString("last_name"));
         user.setUserName(results.getString("user_name"));
+        user.setId(results.getInt("id"));
 
         // Store the result as a string so you can convert it to LocalDate
         dateOfBirth = results.getString("date_of_birth");
