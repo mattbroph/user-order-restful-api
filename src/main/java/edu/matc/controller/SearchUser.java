@@ -28,8 +28,9 @@ public class SearchUser extends HttpServlet {
         UserData userData = new UserData();
         String searchTerm = req.getParameter("searchTerm");
 
-        // if search term is empty, then get all users, if not then use the search criteria
-
+        /* If search term is empty, then get all users.
+        * If search term is not null, then use the search criteria
+        */
         if (searchTerm != null) {
             req.setAttribute("users", userData.getSearchedUser(searchTerm));
         } else {
