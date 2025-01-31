@@ -1,7 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="head.jsp" />
 
-<html><body>
+<html>
+
+<body>
+
+<%-- Use this to force an exception and test the error page  --%>
+<%--<% throw new Exception("Forcing an exception to test custom error page"); %>--%>
 
 <div class="container-fluid">
 
