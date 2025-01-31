@@ -3,8 +3,6 @@ package edu.matc.controller;
 import edu.matc.persistence.UserData;
 
 import java.io.*;
-import java.time.LocalDate;
-import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -53,10 +51,11 @@ public class AddUser extends HttpServlet {
         rowsAffected = userData.addUser(firstName,
                 lastName, userName, dateOfBirth);
 
-        // Provide a success or fail message for the db insert
+        // Provide a success or fail message for the db insert via the Session
         if (rowsAffected == 1) {
             session.setAttribute("userAddMessage",
                     "Your user was added to the database");
+            // Search the user that was added so it can be displayed on results.jsp
             request.setAttribute("users", userData.getSearchedUser(lastName));
         } else {
             session.setAttribute("userAddMessage",
@@ -65,7 +64,6 @@ public class AddUser extends HttpServlet {
         }
 
         // Send a redirect to the results jsp
-        // response.sendRedirect(url);
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);
         dispatcher.forward(request, response);
 

@@ -5,11 +5,9 @@
 
 <div class="container-fluid">
 
-    <%-- If a user was just added, display success or failure message --%>
-
     <a href="${pageContext.request.contextPath}">Go Home</a>
     <br>
-
+    <%-- If a user was just added, display success or failure message --%>
     <c:if test="${not empty userAddMessage}">
         <h2>${userAddMessage}</h2>
     </c:if>

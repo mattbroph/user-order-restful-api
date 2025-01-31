@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-import edu.matc.entity.User;
-
 /**
  * A simple servlet to welcome the user.
  * @author pwaite
@@ -28,8 +26,8 @@ public class SearchUser extends HttpServlet {
         UserData userData = new UserData();
         String searchTerm = req.getParameter("searchTerm");
 
-        /* If search term is empty, then get all users.
-        * If search term is not null, then use the search criteria
+        /* If search term is null, then get all users.
+        * If search term is not null, then use the search criteria.
         */
         if (searchTerm != null) {
             req.setAttribute("users", userData.getSearchedUser(searchTerm));
