@@ -23,8 +23,14 @@
                 <th>Age</th>
             </tr>
 
-            <c:forEach var="user" items="${users}">
-                <tr>
+            <%-- Referenced sites below to track during JSTL loops
+            https://stackoverflow.com/questions/6237966/how-to-alternate-table-row-background-colors-with-jstl
+            https://blog.andrewbeacock.com/2009/04/jstl-foreach-looping-tricks-using.html
+            https://stackoverflow.com/questions/90238/whats-the-syntax-for-mod-in-java
+            --%>
+            <c:forEach var="user" items="${users}" varStatus="loop">
+            <%-- Label rows odd or even and use it for css selector--%>
+                <tr class="${loop.index % 2 == 0 ? 'even' : 'odd'}">
                     <td>${user.firstName}</td>
                     <td>${user.lastName}</td>
                     <td>${user.userName}</td>

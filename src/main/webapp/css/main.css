@@ -1,10 +1,18 @@
 table {
-    box-shadow: 0 0 .25em cadetblue;
+    box-shadow: 0 0 .25em black;
 }
 td, th {padding: 1em;}
 
-th {
-    border-bottom: .1em solid cadetblue;
+table {
+    border-collapse: collapse;
+}
+
+table tr {
+    border: .1em solid black;
+}
+
+.odd {
+    background-color: #d5dbd8;
 }
 
 body {
