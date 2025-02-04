@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
 
+// log4J
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 /**
  * Access users in the user table.
@@ -13,6 +17,11 @@ import java.time.LocalDate;
  * @author pwaite
  */
 public class UserData {
+
+    /** Demonstrating log4J
+     *
+     */
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
     /** Builds database query to search for all users and calls method to
      * retrieve query results.
@@ -23,6 +32,7 @@ public class UserData {
         List<User> users = new ArrayList<User>();
         String sql = "SELECT * FROM users";
         users = getUsersData(sql, users, null);
+        logger.info("Here's the select sql for getAllUsers " + sql);
         return users;
     }
 
@@ -36,6 +46,7 @@ public class UserData {
         List<User> users = new ArrayList<User>();
         String sql = "SELECT * FROM users WHERE last_name = ?";
         users = getUsersData(sql, users, searchTerm);
+        logger.info("Here's the select sql for getSearchedUser " + sql);
         return users;
         }
 
@@ -73,9 +84,9 @@ public class UserData {
 
                 database.disconnect();
             } catch (SQLException e) {
-                System.out.println("SearchUser.getUserData()...SQL Exception: " + e);
+                logger.error("SearchUser.getUserData()...SQL Exception: ", e);
             } catch (Exception e) {
-                System.out.println("SearchUser.getUserData()...Exception: " + e);
+                logger.error("SearchUser.getUserData()...Exception: ", e);
             }
 
             return users;
@@ -118,9 +129,9 @@ public class UserData {
 
                 database.disconnect();
             } catch (SQLException e) {
-                System.out.println("SearchUser.getUserData()...SQL Exception: " + e);
+                logger.error("SearchUser.addUserData()...SQL Exception: ", e);
             } catch (Exception e) {
-                System.out.println("SearchUser.getUserData()...Exception: " + e);
+                logger.error("SearchUser.addUserData()...Exception: ", e);
             }
 
             return rowsAffected;

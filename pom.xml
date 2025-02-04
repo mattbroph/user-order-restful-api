@@ -14,6 +14,8 @@
     <javax.version>7.0</javax.version>
     <mysql-version>8.0.16</mysql-version>
     <maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
+    <log4j-version>2.17.1</log4j-version>
+
   </properties>
 
   <dependencies>
@@ -42,7 +44,20 @@
       <version>1.2</version>
     </dependency>
 
+    <!-- next 2 dependencies are for log4J -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>${log4j-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${log4j-version}</version>
+    </dependency>
+
   </dependencies>
+
   <build>
     <finalName>userdisplayexercise</finalName>
     <pluginManagement>
