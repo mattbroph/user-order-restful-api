@@ -1,6 +1,7 @@
 package edu.matc.persistence;
 
 import edu.matc.entity.User;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -11,6 +12,16 @@ class UserDaoTest {
 
     // Step 1 is always create the class / thing we want to test
     UserDao userDao;
+
+    /*
+    * This will run the database_dump.sql and reset the test database
+    * before each unit test.
+    */
+    @BeforeEach
+    void setup() {
+        Database database = Database.getInstance();
+        database.runSQL("clean_db.sql");
+    }
 
     @Test
     void getById() {
