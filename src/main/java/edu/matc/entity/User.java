@@ -11,7 +11,7 @@ import java.time.Period;
 // Use jakarta persistance
 @Entity
 // Specifies the table
-@Table(name = "user") // case-sensitive
+@Table(name = "users") // case-sensitive
 // Need to do with columns down below by the instane variables
 
 
@@ -42,6 +42,8 @@ public class User {
     /* Age will be calculated and passed back in getter.
     * There is no setter so it is not stored (this is a requirement).
     */
+    // Use Transient to have hibernate ignore
+    @Transient
     private int userAge;
 
 
@@ -57,14 +59,12 @@ public class User {
      * @param firstName the first name
      * @param lastName  the last name
      * @param userName  the user name
-     * @param id        the id
      * @param dateOfBirth the date of birth
      */
-    public User(String firstName, String lastName, String userName, int id, LocalDate dateOfBirth) {
+    public User(String firstName, String lastName, String userName, LocalDate dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
-        this.id = id;
         this.dateOfBirth = dateOfBirth;
     }
 
