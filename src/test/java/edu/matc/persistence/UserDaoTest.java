@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -35,6 +36,16 @@ class UserDaoTest {
 
     @Test
     void update() {
+
+        userDao = new UserDao();
+        User userToUpdate = userDao.getById(1);
+        userToUpdate.setLastName("Smith");
+        userDao.update(userToUpdate);
+
+        // retrieve the user and check that the name change worked
+        User actualUser = userDao.getById(1);
+        assertEquals("Smith", actualUser.getLastName());
+
     }
 
     @Test
@@ -58,17 +69,32 @@ class UserDaoTest {
 
     @Test
     void delete() {
+        userDao = new UserDao();
+        User userToDelete = userDao.getById(3);
+        userDao.delete(userToDelete);
+        assertNull(userDao.getById(3));
     }
 
     @Test
     void getAll() {
+        userDao = new UserDao();
+        List<User> users = userDao.getAll();
+        assertEquals(6, users.size());
     }
 
     @Test
     void getByPropertyEqual() {
+        userDao = new UserDao();
+        List<User> users = userDao.getByPropertyLike("lastName", "Curry");
+        assertEquals(1, users.size());
+        assertEquals(3, users.get(0).getId());
     }
 
     @Test
     void getByPropertyLike() {
+
+        userDao = new UserDao();
+        List<User> users = userDao.getByPropertyLike("lastName", "c");
+        assertEquals(3, users.size());
     }
 }
