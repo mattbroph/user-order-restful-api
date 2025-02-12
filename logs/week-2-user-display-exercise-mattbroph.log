@@ -871,3 +871,6 @@ java.lang.NullPointerException: null
 	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
 	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
 	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]
+[DEBUG] 2025-02-12 08:50:01.848 [main] UserDao - The list of users [User{firstName='Joe', lastName='Coyne', userName='jcoyne', dateOfBirth='1964-04-01'}, User{firstName='Fred', lastName='Hensen', userName='fhensen', dateOfBirth='1988-05-08'}, User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}, User{firstName='Karen', lastName='Mack', userName='kmack', dateOfBirth='1986-07-08'}, User{firstName='Dianne', lastName='Klein', userName='dklein', dateOfBirth='1991-01-22'}, User{firstName='Dawn', lastName='Tillman', userName='dtillman', dateOfBirth='1979-08-30'}]
+[DEBUG] 2025-02-12 08:53:38.942 [main] UserDao - Searching for user with lastName = c
+[DEBUG] 2025-02-12 08:53:39.209 [main] UserDao - The list of users is: [User{firstName='Joe', lastName='Coyne', userName='jcoyne', dateOfBirth='1964-04-01'}, User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}, User{firstName='Karen', lastName='Mack', userName='kmack', dateOfBirth='1986-07-08'}]

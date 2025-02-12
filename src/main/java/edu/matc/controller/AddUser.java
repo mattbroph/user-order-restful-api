@@ -31,7 +31,7 @@ public class AddUser extends HttpServlet {
         HttpSession session = request.getSession();
 
         // Number of rows inserted
-        int rowsAffected;
+//        int rowsAffected;
 
         // Create a UserData Instance
 //        UserData userData = new UserData();

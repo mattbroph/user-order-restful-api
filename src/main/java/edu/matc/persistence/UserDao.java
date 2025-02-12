@@ -102,6 +102,7 @@ public class UserDao {
         query.select(root).where(builder.equal(root.get(propertyName), value));
         List<User> users = session.createSelectionQuery( query ).getResultList();
 
+        logger.debug("The list of users is: " + users);
         session.close();
         return users;
     }
@@ -123,6 +124,7 @@ public class UserDao {
         query.where(builder.like(propertyPath, "%" + value + "%"));
 
         List<User> users = session.createQuery( query ).getResultList();
+        logger.debug("The list of users is: " + users);
         session.close();
         return users;
     }
