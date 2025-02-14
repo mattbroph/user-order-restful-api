@@ -1,5 +1,6 @@
 package edu.matc.persistence;
 
+import edu.matc.entity.Order;
 import edu.matc.entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -73,6 +74,28 @@ class UserDaoTest {
         User userToDelete = userDao.getById(3);
         userDao.delete(userToDelete);
         assertNull(userDao.getById(3));
+    }
+
+    @Test
+    void deleteWithOrders() {
+        // create the userDao
+        userDao = new UserDao();
+        // get the user we want to delete that has 2 orders associated
+        User userToBeDeleted = userDao.getById(3);
+        List<Order> orders = userToBeDeleted.getOrders();
+        // get the associated order numbers
+        int orderNumber1 = orders.get(0).getId();
+        int orderNumber2 = orders.get(1).getId();
+        // delete the user
+        userDao.delete(userToBeDeleted);
+        // verify user is deleted
+        assertNull(userDao.getById(3));
+        // verify the orders are deleted
+        OrderDao orderDao = new OrderDao();
+        assertNull(orderDao.getById(orderNumber1));
+        assertNull(orderDao.getById(orderNumber2));
+
+
     }
 
     @Test
