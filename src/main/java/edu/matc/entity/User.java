@@ -6,7 +6,11 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.ejb.Local;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
 
+/**
+ * The type User.
+ */
 // This lets hibernate know that this class is mapped to a particular table
 // Use jakarta persistance
 @Entity
@@ -39,6 +43,10 @@ public class User {
     @GenericGenerator(name = "native",strategy = "native")
     private int id;
 
+    // You may need to update the cascade type depending on if you want things deleted or not
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private ArrayList<Order> orders = new ArrayList<>();
+
     /* Age will be calculated and passed back in getter.
     * There is no setter so it is not stored (this is a requirement).
     */
@@ -56,9 +64,9 @@ public class User {
     /**
      * Instantiates a new User.
      *
-     * @param firstName the first name
-     * @param lastName  the last name
-     * @param userName  the user name
+     * @param firstName   the first name
+     * @param lastName    the last name
+     * @param userName    the user name
      * @param dateOfBirth the date of birth
      */
     public User(String firstName, String lastName, String userName, LocalDate dateOfBirth) {
@@ -68,6 +76,26 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
+    /**
+     * Add order.
+     *
+     * @param order the order
+     */
+// We can add or remove orders if we include these easy methods
+    public void addOrder(Order order) {
+        orders.add(order);
+        order.setUser(this);
+    }
+
+    /**
+     * Remove order.
+     *
+     * @param order the order
+     */
+    public void removeOrder(Order order) {
+        orders.remove(order);
+        order.setUser(null);
+    }
 
     /**
      * Gets first name.
@@ -160,7 +188,23 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
+    /**
+     * Gets orders.
+     *
+     * @return the orders
+     */
+    public ArrayList<Order> getOrders() {
+        return orders;
+    }
 
+    /**
+     * Sets orders.
+     *
+     * @param orders the orders
+     */
+    public void setOrders(ArrayList<Order> orders) {
+        this.orders = orders;
+    }
 
     @Override
     public String toString() {
@@ -172,8 +216,9 @@ public class User {
                 '}';
     }
 
-    /** Calculates the user's age. Age should not be stored, it should be
-     *  calculated only.
+    /**
+     * Calculates the user's age. Age should not be stored, it should be
+     * calculated only.
      *
      * @return the user's age in years
      */
