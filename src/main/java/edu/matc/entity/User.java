@@ -7,6 +7,7 @@ import javax.ejb.Local;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The type User.
@@ -44,8 +45,8 @@ public class User {
     private int id;
 
     // You may need to update the cascade type depending on if you want things deleted or not
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private ArrayList<Order> orders = new ArrayList<>();
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<Order> orders = new ArrayList<>();
 
     /* Age will be calculated and passed back in getter.
     * There is no setter so it is not stored (this is a requirement).
@@ -193,7 +194,7 @@ public class User {
      *
      * @return the orders
      */
-    public ArrayList<Order> getOrders() {
+    public List<Order> getOrders() {
         return orders;
     }
 
@@ -202,7 +203,7 @@ public class User {
      *
      * @param orders the orders
      */
-    public void setOrders(ArrayList<Order> orders) {
+    public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
 
