@@ -22,6 +22,7 @@
         <!--Include all JavaBean classes that map to table in DB need to be
         include here -->
         <mapping class="edu.matc.entity.User"/>
+        <mapping class="edu.matc.entity.Order"/>
 
     </session-factory>
 
