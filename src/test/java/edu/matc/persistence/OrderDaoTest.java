@@ -11,18 +11,23 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class OrderDaoTest {
 
-    OrderDao orderDao;
+    GenericDao genericDao;
+    GenericDao genericDaoUser;
 
     @BeforeEach
     void setUp() {
         Database database = Database.getInstance();
         database.runSQL("clean_db.sql");
-        orderDao = new OrderDao();
+        /*******************************************************************************
+         * ATTENTION: Need to create two in order to do insert with two class types!!!!!
+         ********************************************************************************/
+        genericDao = new GenericDao(Order.class);
+        genericDaoUser = new GenericDao(User.class);
     }
 
     @Test
     void getById() {
-        Order retrievedOrder = orderDao.getById(1);
+        Order retrievedOrder = (Order)genericDao.getById(1);
         assertNotNull(retrievedOrder);
         assertEquals("party supplies", retrievedOrder.getDescription());
         assertEquals(3, retrievedOrder.getUser().getId());
@@ -30,10 +35,10 @@ class OrderDaoTest {
 
     @Test
     void update() {
-        Order order = orderDao.getById(1);
+        Order order = (Order)genericDao.getById(1);
         order.setDescription("more cool stuff");
-        orderDao.update(order);
-        Order retrievedOrder = orderDao.getById(1);
+        genericDao.update(order);
+        Order retrievedOrder = (Order)genericDao.getById(1);
         assertEquals("more cool stuff", retrievedOrder.getDescription());
 
     }
@@ -41,17 +46,16 @@ class OrderDaoTest {
     @Test
     void insert() {
         // get a user
-        UserDao userDao = new UserDao();
-        User user = userDao.getById(6);
+        User user = (User)genericDaoUser.getById(6);
 
         // create an order with that user
         Order order = new Order("fun things", user);
 
         // insert the order
-        int insertedOrderId = orderDao.insert(order);
+        int insertedOrderId = genericDao.insert(order);
 
         // retrieve the order
-        Order retrievedOrder = orderDao.getById(insertedOrderId);
+        Order retrievedOrder = (Order)genericDao.getById(insertedOrderId);
 
         // verify
         assertNotNull(retrievedOrder);
@@ -61,25 +65,29 @@ class OrderDaoTest {
 
     @Test
     void delete() {
-        orderDao.delete(orderDao.getById(3));
-        assertNull(orderDao.getById(3));
+        // Get the order to delete
+        Order orderToDelete = (Order)genericDao.getById(3);
+        // Delete the order
+        genericDao.delete(orderToDelete);
+        // Make sure the order no longer exists
+        assertNull((Order)genericDao.getById(3));
     }
 
     @Test
     void getAll() {
-        List<Order> orders = orderDao.getAll();
+        List<Order> orders = (List<Order>)genericDao.getAll();
         assertEquals(4, orders.size());
     }
 
     @Test
     void getByPropertyEqual() {
-        List<Order> orders = orderDao.getByPropertyEqual("description", "party supplies");
+        List<Order> orders = (List<Order>)genericDao.getByPropertyEqual("description", "party supplies");
         assertEquals(1, orders.size());
     }
 
     @Test
     void getByPropertyLike() {
-        List<Order> orders = orderDao.getByPropertyLike("description", "party");
+        List<Order> orders = (List<Order>)genericDao.getByPropertyLike("description", "party");
         assertEquals(1, orders.size());
     }
 }
