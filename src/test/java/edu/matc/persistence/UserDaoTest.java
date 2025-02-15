@@ -14,6 +14,8 @@ class UserDaoTest {
 
     // Step 1 is always create the class / thing we want to test
     UserDao userDao;
+    GenericDao genericDao;
+    GenericDao genericDaoOrder;
 
     /*
     * This will run the database_dump.sql and reset the test database
@@ -23,15 +25,16 @@ class UserDaoTest {
     void setup() {
         Database database = Database.getInstance();
         database.runSQL("clean_db.sql");
+        genericDao = new GenericDao(User.class);
+        genericDaoOrder = new GenericDao(Order.class);
     }
 
     @Test
     void getById() {
 
-        userDao = new UserDao();
-        User retrievedUser = userDao.getById(1);
+        User retrievedUser = (User)genericDao.getById(6);
         assertNotNull(retrievedUser);
-        assertEquals("Joe", retrievedUser.getFirstName());
+        assertEquals("Dawn", retrievedUser.getFirstName());
 
     }
 
@@ -54,14 +57,13 @@ class UserDaoTest {
 
         int userId = 0;
 
-        userDao = new UserDao();
         User myUser = new User("Mary", "Smith",
                 "marySmith", LocalDate.of(1900, 1, 1));
-        userId = userDao.insert(myUser);
+        userId = genericDao.insert(myUser);
 
         assertNotEquals(0, userId);
 
-        User inserteredUser = userDao.getById(userId);
+        User inserteredUser = (User)genericDao.getById(userId);
 
         assertEquals("Mary", inserteredUser.getFirstName());
 
@@ -70,45 +72,39 @@ class UserDaoTest {
 
     @Test
     void delete() {
-        userDao = new UserDao();
-        User userToDelete = userDao.getById(3);
-        userDao.delete(userToDelete);
-        assertNull(userDao.getById(3));
+        User userToDelete = (User)genericDao.getById(3);
+        genericDao.delete(userToDelete);
+        assertNull((User)genericDao.getById(3));
     }
 
     @Test
     void deleteWithOrders() {
-        // create the userDao
-        userDao = new UserDao();
         // get the user we want to delete that has 2 orders associated
-        User userToBeDeleted = userDao.getById(3);
+        User userToBeDeleted = (User)genericDao.getById(3);
         List<Order> orders = userToBeDeleted.getOrders();
         // get the associated order numbers
         int orderNumber1 = orders.get(0).getId();
         int orderNumber2 = orders.get(1).getId();
         // delete the user
-        userDao.delete(userToBeDeleted);
+        genericDao.delete(userToBeDeleted);
         // verify user is deleted
-        assertNull(userDao.getById(3));
+        assertNull((User)genericDao.getById(3));
         // verify the orders are deleted
-        OrderDao orderDao = new OrderDao();
-        assertNull(orderDao.getById(orderNumber1));
-        assertNull(orderDao.getById(orderNumber2));
+        assertNull(genericDaoOrder.getById(orderNumber1));
+        assertNull(genericDaoOrder.getById(orderNumber2));
 
 
     }
 
     @Test
     void getAll() {
-        userDao = new UserDao();
-        List<User> users = userDao.getAll();
+        List<User> users = (List<User>)genericDao.getAll();
         assertEquals(6, users.size());
     }
 
     @Test
     void getByPropertyEqual() {
-        userDao = new UserDao();
-        List<User> users = userDao.getByPropertyLike("lastName", "Curry");
+        List<User> users = (List<User>)genericDao.getByPropertyLike("lastName", "Curry");
         assertEquals(1, users.size());
         assertEquals(3, users.get(0).getId());
     }
@@ -116,8 +112,7 @@ class UserDaoTest {
     @Test
     void getByPropertyLike() {
 
-        userDao = new UserDao();
-        List<User> users = userDao.getByPropertyLike("lastName", "c");
+        List<User> users = (List<User>)genericDao.getByPropertyLike("lastName", "c");
         assertEquals(3, users.size());
     }
 }
