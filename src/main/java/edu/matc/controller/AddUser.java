@@ -1,8 +1,12 @@
 package edu.matc.controller;
 
-import edu.matc.persistence.UserData;
+import edu.matc.entity.User;
+import edu.matc.persistence.UserDao;
 
 import java.io.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -33,10 +37,14 @@ public class AddUser extends HttpServlet {
         HttpSession session = request.getSession();
 
         // Number of rows inserted
-        int rowsAffected;
+        int newUserID;
+
+        // Need to provide the results.jsp with a List even though only
+        // one will be returned on an insert
+        List<User> userList = new ArrayList<User>();
 
         // Create a UserData Instance
-        UserData userData = new UserData();
+        UserDao userDao = new UserDao();
 
         // Extract data for the new user from the HTML form
         String firstName = request.getParameter("firstName");
@@ -44,24 +52,31 @@ public class AddUser extends HttpServlet {
         String userName = request.getParameter("userName");
         String dateOfBirth = request.getParameter("dateOfBirth");
 
-        // Set the url for the forward
-        String url = "/results.jsp";
+        LocalDate formattedBirthDate = LocalDate.parse(dateOfBirth);
 
-        // Call the add employee method and pass the form data
-        rowsAffected = userData.addUser(firstName,
-                lastName, userName, dateOfBirth);
+        // Create the User
+        User newUser = new User(firstName, lastName, userName, formattedBirthDate);
+
+        // Insert the new user
+        newUserID = userDao.insert(newUser);
+
+        // Add the new user to the list for the jsp
+        userList.add(userDao.getById(newUserID));
 
         // Provide a success or fail message for the db insert via the Session
-        if (rowsAffected == 1) {
+        if (newUserID > 0) {
             session.setAttribute("userAddMessage",
                     "Your user was added to the database");
-            // Search the user that was added so it can be displayed on results.jsp
-            request.setAttribute("users", userData.getSearchedUser(lastName));
+            // Pass the user "list" so it can be displayed on results.jsp
+            request.setAttribute("users", userList);
         } else {
             session.setAttribute("userAddMessage",
                     "Something went wrong, your user was not "
                             + " added to the database");
         }
+
+        // Set the url for the forward
+        String url = "/results.jsp";
 
         // Send a redirect to the results jsp
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);
