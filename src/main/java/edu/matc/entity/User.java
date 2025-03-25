@@ -1,5 +1,6 @@
 package edu.matc.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -44,6 +45,8 @@ public class User {
     @GenericGenerator(name = "native",strategy = "native")
     private int id;
 
+
+    @JsonManagedReference
     // You may need to update the cascade type depending on if you want things deleted or not
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Order> orders = new ArrayList<>();
