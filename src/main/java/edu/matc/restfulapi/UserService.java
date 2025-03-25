@@ -1,13 +1,16 @@
 package edu.matc.restfulapi;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.matc.entity.User;
 import edu.matc.persistence.GenericDao;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 
 @Path("/users")
@@ -60,6 +63,73 @@ public class UserService {
 
         String successResponse = "{0}";
         return Response.status(200).entity(successResponse).build();
+    }
+    // Call http://localhost:8080/userDisplay/services/users
+    @POST
+    @Consumes("application/json")
+    @Produces("application/json")
+    public Response createUser(String userJson) throws JsonProcessingException {
+
+        GenericDao userDao = new GenericDao(User.class);
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        /*
+        * Reference section 3.5 Creating Java Map From JSON String
+        * https://www.baeldung.com/jackson-object-mapper-tutorial
+         */
+        Map<String, String> map = mapper.readValue(userJson, Map.class);
+
+        String firstName = map.get("firstName");
+        String lastName = map.get("lastName");
+        String userName = map.get("userName");
+        LocalDate dateOfBirth = LocalDate.parse(map.get("dateOfBirth"));
+
+        User newUser = new User(firstName, lastName, userName, dateOfBirth);
+
+        int insertedId = userDao.insert(newUser);
+
+        return Response.status(201).entity(String.valueOf(insertedId)).build();
 
     }
+
+    // Call http://localhost:8080/userDisplay/services/users/{idToUpdate}
+    @PUT
+    @Path("{id}")
+    @Consumes("application/json")
+    @Produces("application/json")
+    public Response createUser(String userJson, @PathParam("id") int id) throws JsonProcessingException {
+
+        GenericDao userDao = new GenericDao(User.class);
+        User userToUpdate = (User)userDao.getById(id);
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        // Get the values from the json in the request body
+        Map<String, String> map = mapper.readValue(userJson, Map.class);
+
+        // Set the new values for the user
+        String firstName = map.get("firstName");
+        userToUpdate.setFirstName(firstName);
+
+        String lastName = map.get("lastName");
+        userToUpdate.setLastName(lastName);
+
+        String userName = map.get("userName");
+        userToUpdate.setUserName(userName);
+
+        LocalDate dateOfBirth = LocalDate.parse(map.get("dateOfBirth"));
+        userToUpdate.setDateOfBirth(dateOfBirth);
+
+        // Update the user in the DB
+        userDao.update(userToUpdate);
+
+        String successResponse = "{0}";
+
+        return Response.status(200).entity(successResponse).build();
+
+    }
+
+
+
 }
