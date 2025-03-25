@@ -50,3 +50,5 @@ fabric.properties
 
 # Remove db.properties file from commit #
 *.properties
+
+/src/main/resources/

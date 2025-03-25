@@ -27,6 +27,7 @@
                 <th>Last Name</th>
                 <th>User Name</th>
                 <th>Age</th>
+                <th>Orders</th>
             </tr>
 
             <%-- Referenced sites below to track during JSTL loops
@@ -42,6 +43,13 @@
                     <td>${user.lastName}</td>
                     <td>${user.userName}</td>
                     <td>${user.userAge}</td>
+                    <td>
+                        <ul>
+                            <c:forEach var="order" items="${user.orders}">
+                                ${order.description}
+                            </c:forEach>
+                        </ul>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
