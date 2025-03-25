@@ -13,7 +13,8 @@ https://www.tutorialspoint.com/jsp/jsp_exception_handling.htm--%>
 
     <p>
         <b>The status code is:</b> <%= request.getAttribute("javax.servlet.error.status_code") %><br>
-        <b>The error message again is:</b> <%= request.getAttribute("javax.servlet.error.message") %><br>
+        <b>The error message is:</b> <%= request.getAttribute("javax.servlet.error.message") %><br>
+        <b>The exception class is:</b> <%= request.getAttribute("javax.servlet.error.exception") %><br>
     </p>
 
 </body>
