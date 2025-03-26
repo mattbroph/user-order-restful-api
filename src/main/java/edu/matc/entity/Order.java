@@ -1,6 +1,7 @@
 package edu.matc.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -24,6 +25,7 @@ public class Order {
 
     // We're going  to use the OBJECT and not just the ID itself
     @ManyToOne
+    @JsonBackReference
     private User user;
 
     /**
