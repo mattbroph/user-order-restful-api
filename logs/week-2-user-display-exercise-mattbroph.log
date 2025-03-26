@@ -1044,3 +1044,89 @@ java.lang.NullPointerException: null
 [DEBUG] 2025-02-15 16:20:48.581 [main] GenericDao - Searching for entities with description = party
 [DEBUG] 2025-02-15 16:20:48.646 [main] GenericDao - The list of entities is: [Order{id=1, description='party supplies', user=User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}}]
 [DEBUG] 2025-02-15 16:20:49.277 [main] GenericDao - Searching for order with description = party supplies
+[DEBUG] 2025-03-17 11:19:51.150 [main] GenericDao - Searching for entities with description = party
+[DEBUG] 2025-03-17 11:19:51.247 [main] GenericDao - The list of entities is: [Order{id=1, description='party supplies', user=User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}}]
+[DEBUG] 2025-03-17 11:19:51.890 [main] GenericDao - Searching for order with description = party supplies
+[DEBUG] 2025-03-17 11:19:53.765 [main] GenericDao - Searching for entities with lastName = c
+[DEBUG] 2025-03-17 11:19:53.784 [main] GenericDao - The list of entities is: [User{firstName='Joe', lastName='Coyne', userName='jcoyne', dateOfBirth='1964-04-01'}, User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}, User{firstName='Karen', lastName='Mack', userName='kmack', dateOfBirth='1986-07-08'}]
+[DEBUG] 2025-03-17 11:19:54.654 [main] GenericDao - Searching for entities with lastName = Curry
+[DEBUG] 2025-03-17 11:19:54.670 [main] GenericDao - The list of entities is: [User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}]
+[DEBUG] 2025-03-25 11:39:21.789 [main] GenericDao - Searching for entities with description = party
+[DEBUG] 2025-03-25 11:39:21.864 [main] GenericDao - The list of entities is: [Order{id=1, description='party supplies', user=User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}}]
+[DEBUG] 2025-03-25 11:39:22.450 [main] GenericDao - Searching for order with description = party supplies
+[DEBUG] 2025-03-25 11:39:23.899 [main] GenericDao - Searching for entities with lastName = c
+[DEBUG] 2025-03-25 11:39:23.912 [main] GenericDao - The list of entities is: [User{firstName='Joe', lastName='Coyne', userName='jcoyne', dateOfBirth='1964-04-01'}, User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}, User{firstName='Karen', lastName='Mack', userName='kmack', dateOfBirth='1986-07-08'}]
+[DEBUG] 2025-03-25 11:39:24.449 [main] GenericDao - Searching for entities with lastName = Curry
+[DEBUG] 2025-03-25 11:39:24.458 [main] GenericDao - The list of entities is: [User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}]
+[DEBUG] 2025-03-25 11:54:36.250 [main] GenericDao - Searching for entities with description = party
+[DEBUG] 2025-03-25 11:54:36.373 [main] GenericDao - The list of entities is: [Order{id=1, description='party supplies', user=User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}}]
+[DEBUG] 2025-03-25 11:54:37.070 [main] GenericDao - Searching for order with description = party supplies
+[DEBUG] 2025-03-25 11:54:39.450 [main] GenericDao - Searching for entities with lastName = c
+[DEBUG] 2025-03-25 11:54:39.470 [main] GenericDao - The list of entities is: [User{firstName='Joe', lastName='Coyne', userName='jcoyne', dateOfBirth='1964-04-01'}, User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}, User{firstName='Karen', lastName='Mack', userName='kmack', dateOfBirth='1986-07-08'}]
+[DEBUG] 2025-03-25 11:54:40.034 [main] GenericDao - Searching for entities with lastName = Curry
+[DEBUG] 2025-03-25 11:54:40.043 [main] GenericDao - The list of entities is: [User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}]
+[DEBUG] 2025-03-25 12:04:56.564 [main] GenericDao - Searching for entities with description = party
+[DEBUG] 2025-03-25 12:04:56.630 [main] GenericDao - The list of entities is: [Order{id=1, description='party supplies', user=User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}}]
+[DEBUG] 2025-03-25 12:04:57.161 [main] GenericDao - Searching for order with description = party supplies
+[DEBUG] 2025-03-25 12:04:58.598 [main] GenericDao - Searching for entities with lastName = c
+[DEBUG] 2025-03-25 12:04:58.614 [main] GenericDao - The list of entities is: [User{firstName='Joe', lastName='Coyne', userName='jcoyne', dateOfBirth='1964-04-01'}, User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}, User{firstName='Karen', lastName='Mack', userName='kmack', dateOfBirth='1986-07-08'}]
+[DEBUG] 2025-03-25 12:04:59.098 [main] GenericDao - Searching for entities with lastName = Curry
+[DEBUG] 2025-03-25 12:04:59.106 [main] GenericDao - The list of entities is: [User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}]
+[DEBUG] 2025-03-25 12:25:03.218 [main] GenericDao - Searching for entities with description = party
+[DEBUG] 2025-03-25 12:25:03.279 [main] GenericDao - The list of entities is: [Order{id=1, description='party supplies', user=User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}}]
+[DEBUG] 2025-03-25 12:25:03.928 [main] GenericDao - Searching for order with description = party supplies
+[DEBUG] 2025-03-25 12:25:05.455 [main] GenericDao - Searching for entities with lastName = c
+[DEBUG] 2025-03-25 12:25:05.469 [main] GenericDao - The list of entities is: [User{firstName='Joe', lastName='Coyne', userName='jcoyne', dateOfBirth='1964-04-01'}, User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}, User{firstName='Karen', lastName='Mack', userName='kmack', dateOfBirth='1986-07-08'}]
+[DEBUG] 2025-03-25 12:25:05.964 [main] GenericDao - Searching for entities with lastName = Curry
+[DEBUG] 2025-03-25 12:25:05.971 [main] GenericDao - The list of entities is: [User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}]
+[DEBUG] 2025-03-25 12:52:27.833 [main] GenericDao - Searching for entities with description = party
+[DEBUG] 2025-03-25 12:52:28.040 [main] GenericDao - The list of entities is: [Order{id=1, description='party supplies', user=User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}}]
+[DEBUG] 2025-03-25 12:52:28.890 [main] GenericDao - Searching for order with description = party supplies
+[DEBUG] 2025-03-25 12:52:31.115 [main] GenericDao - Searching for entities with lastName = c
+[DEBUG] 2025-03-25 12:52:31.150 [main] GenericDao - The list of entities is: [User{firstName='Joe', lastName='Coyne', userName='jcoyne', dateOfBirth='1964-04-01'}, User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}, User{firstName='Karen', lastName='Mack', userName='kmack', dateOfBirth='1986-07-08'}]
+[DEBUG] 2025-03-25 12:52:31.889 [main] GenericDao - Searching for entities with lastName = Curry
+[DEBUG] 2025-03-25 12:52:31.903 [main] GenericDao - The list of entities is: [User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}]
+[DEBUG] 2025-03-25 12:55:33.487 [http-nio-8080-exec-7] UserDao - The list of users [User{firstName='Joe', lastName='Coyne', userName='jcoyne', dateOfBirth='1964-04-01'}, User{firstName='Fred', lastName='Hensen', userName='fhensen', dateOfBirth='1988-05-08'}, User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}, User{firstName='Dianne', lastName='Klein', userName='dklein', dateOfBirth='1991-01-22'}, User{firstName='Dawn', lastName='Tillman', userName='dtillman', dateOfBirth='1979-08-30'}, User{firstName='Tony', lastName='Adams', userName='tAdams', dateOfBirth='2025-01-26'}]
+[DEBUG] 2025-03-25 13:18:37.932 [main] GenericDao - Searching for entities with description = party
+[DEBUG] 2025-03-25 13:18:38.012 [main] GenericDao - The list of entities is: [Order{id=1, description='party supplies', user=User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}}]
+[DEBUG] 2025-03-25 13:18:38.573 [main] GenericDao - Searching for order with description = party supplies
+[DEBUG] 2025-03-25 13:18:40.071 [main] GenericDao - Searching for entities with lastName = c
+[DEBUG] 2025-03-25 13:18:40.086 [main] GenericDao - The list of entities is: [User{firstName='Joe', lastName='Coyne', userName='jcoyne', dateOfBirth='1964-04-01'}, User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}, User{firstName='Karen', lastName='Mack', userName='kmack', dateOfBirth='1986-07-08'}]
+[DEBUG] 2025-03-25 13:18:40.635 [main] GenericDao - Searching for entities with lastName = Curry
+[DEBUG] 2025-03-25 13:18:40.643 [main] GenericDao - The list of entities is: [User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}]
+[DEBUG] 2025-03-25 13:23:59.883 [main] GenericDao - Searching for entities with description = party
+[DEBUG] 2025-03-25 13:23:59.951 [main] GenericDao - The list of entities is: [Order{id=1, description='party supplies', user=User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}}]
+[DEBUG] 2025-03-25 13:24:00.488 [main] GenericDao - Searching for order with description = party supplies
+[DEBUG] 2025-03-25 13:24:01.972 [main] GenericDao - Searching for entities with lastName = c
+[DEBUG] 2025-03-25 13:24:01.990 [main] GenericDao - The list of entities is: [User{firstName='Joe', lastName='Coyne', userName='jcoyne', dateOfBirth='1964-04-01'}, User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}, User{firstName='Karen', lastName='Mack', userName='kmack', dateOfBirth='1986-07-08'}]
+[DEBUG] 2025-03-25 13:24:02.585 [main] GenericDao - Searching for entities with lastName = Curry
+[DEBUG] 2025-03-25 13:24:02.593 [main] GenericDao - The list of entities is: [User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}]
+[DEBUG] 2025-03-25 13:35:01.463 [main] GenericDao - Searching for entities with description = party
+[DEBUG] 2025-03-25 13:35:02.274 [main] GenericDao - The list of entities is: [Order{id=1, description='party supplies', user=User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}}]
+[DEBUG] 2025-03-25 13:35:03.909 [main] GenericDao - Searching for order with description = party supplies
+[DEBUG] 2025-03-25 13:35:07.749 [main] GenericDao - Searching for entities with lastName = c
+[DEBUG] 2025-03-25 13:35:07.799 [main] GenericDao - The list of entities is: [User{firstName='Joe', lastName='Coyne', userName='jcoyne', dateOfBirth='1964-04-01'}, User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}, User{firstName='Karen', lastName='Mack', userName='kmack', dateOfBirth='1986-07-08'}]
+[DEBUG] 2025-03-25 13:35:09.022 [main] GenericDao - Searching for entities with lastName = Curry
+[DEBUG] 2025-03-25 13:35:09.049 [main] GenericDao - The list of entities is: [User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}]
+[DEBUG] 2025-03-25 13:37:26.031 [http-nio-8080-exec-9] UserDao - The list of users [User{firstName='Joe', lastName='Coyne', userName='jcoyne', dateOfBirth='1964-04-01'}, User{firstName='Fred', lastName='Hensen', userName='fhensen', dateOfBirth='1988-05-08'}, User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}, User{firstName='Dianne', lastName='Klein', userName='dklein', dateOfBirth='1991-01-22'}, User{firstName='Dawn', lastName='Tillman', userName='dtillman', dateOfBirth='1979-08-30'}, User{firstName='Tony', lastName='Adams', userName='tAdams', dateOfBirth='2025-01-26'}, User{firstName='Bart', lastName='Simpson', userName='bartSimpson', dateOfBirth='1964-07-17'}]
+[DEBUG] 2025-03-25 13:44:45.651 [main] GenericDao - Searching for entities with description = party
+[DEBUG] 2025-03-25 13:44:45.796 [main] GenericDao - The list of entities is: [Order{id=1, description='party supplies', user=User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}}]
+[DEBUG] 2025-03-25 13:44:46.453 [main] GenericDao - Searching for order with description = party supplies
+[DEBUG] 2025-03-25 13:44:49.026 [main] GenericDao - Searching for entities with lastName = c
+[DEBUG] 2025-03-25 13:44:49.059 [main] GenericDao - The list of entities is: [User{firstName='Joe', lastName='Coyne', userName='jcoyne', dateOfBirth='1964-04-01'}, User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}, User{firstName='Karen', lastName='Mack', userName='kmack', dateOfBirth='1986-07-08'}]
+[DEBUG] 2025-03-25 13:44:49.702 [main] GenericDao - Searching for entities with lastName = Curry
+[DEBUG] 2025-03-25 13:44:49.719 [main] GenericDao - The list of entities is: [User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}]
+[DEBUG] 2025-03-25 13:50:29.958 [main] GenericDao - Searching for entities with description = party
+[DEBUG] 2025-03-25 13:50:30.053 [main] GenericDao - The list of entities is: [Order{id=1, description='party supplies', user=User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}}]
+[DEBUG] 2025-03-25 13:50:30.622 [main] GenericDao - Searching for order with description = party supplies
+[DEBUG] 2025-03-25 13:50:32.605 [main] GenericDao - Searching for entities with lastName = c
+[DEBUG] 2025-03-25 13:50:32.625 [main] GenericDao - The list of entities is: [User{firstName='Joe', lastName='Coyne', userName='jcoyne', dateOfBirth='1964-04-01'}, User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}, User{firstName='Karen', lastName='Mack', userName='kmack', dateOfBirth='1986-07-08'}]
+[DEBUG] 2025-03-25 13:50:33.190 [main] GenericDao - Searching for entities with lastName = Curry
+[DEBUG] 2025-03-25 13:50:33.202 [main] GenericDao - The list of entities is: [User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}]
+[DEBUG] 2025-03-25 19:11:52.605 [main] GenericDao - Searching for entities with description = party
+[DEBUG] 2025-03-25 19:11:52.728 [main] GenericDao - The list of entities is: [Order{id=1, description='party supplies', user=User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}}]
+[DEBUG] 2025-03-25 19:11:53.287 [main] GenericDao - Searching for order with description = party supplies
+[DEBUG] 2025-03-25 19:11:55.795 [main] GenericDao - Searching for entities with lastName = c
+[DEBUG] 2025-03-25 19:11:55.822 [main] GenericDao - The list of entities is: [User{firstName='Joe', lastName='Coyne', userName='jcoyne', dateOfBirth='1964-04-01'}, User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}, User{firstName='Karen', lastName='Mack', userName='kmack', dateOfBirth='1986-07-08'}]
+[DEBUG] 2025-03-25 19:11:56.450 [main] GenericDao - Searching for entities with lastName = Curry
+[DEBUG] 2025-03-25 19:11:56.460 [main] GenericDao - The list of entities is: [User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}]

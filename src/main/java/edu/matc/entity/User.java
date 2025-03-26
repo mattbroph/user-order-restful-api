@@ -1,5 +1,7 @@
 package edu.matc.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -26,15 +28,19 @@ import java.util.List;
  * @author pwaite
  */
 public class User {
+    @JsonProperty("firstName")
     @Column (name = "first_name")
     private String firstName;
 
+    @JsonProperty("lastName")
     @Column (name = "last_name")
     private String lastName;
 
+    @JsonProperty("userName")
     @Column (name = "user_name")
     private String userName;
 
+    @JsonProperty("dateOfBirth")
     @Column (name = "date_of_birth")
     private LocalDate dateOfBirth;
     // Every Entity must have a unique identifier which is annotated @Id
@@ -44,6 +50,8 @@ public class User {
     @GenericGenerator(name = "native",strategy = "native")
     private int id;
 
+
+    @JsonManagedReference
     // You may need to update the cascade type depending on if you want things deleted or not
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Order> orders = new ArrayList<>();
