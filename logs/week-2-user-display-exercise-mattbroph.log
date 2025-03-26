@@ -1123,3 +1123,10 @@ java.lang.NullPointerException: null
 [DEBUG] 2025-03-25 13:50:32.625 [main] GenericDao - The list of entities is: [User{firstName='Joe', lastName='Coyne', userName='jcoyne', dateOfBirth='1964-04-01'}, User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}, User{firstName='Karen', lastName='Mack', userName='kmack', dateOfBirth='1986-07-08'}]
 [DEBUG] 2025-03-25 13:50:33.190 [main] GenericDao - Searching for entities with lastName = Curry
 [DEBUG] 2025-03-25 13:50:33.202 [main] GenericDao - The list of entities is: [User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}]
+[DEBUG] 2025-03-25 19:11:52.605 [main] GenericDao - Searching for entities with description = party
+[DEBUG] 2025-03-25 19:11:52.728 [main] GenericDao - The list of entities is: [Order{id=1, description='party supplies', user=User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}}]
+[DEBUG] 2025-03-25 19:11:53.287 [main] GenericDao - Searching for order with description = party supplies
+[DEBUG] 2025-03-25 19:11:55.795 [main] GenericDao - Searching for entities with lastName = c
+[DEBUG] 2025-03-25 19:11:55.822 [main] GenericDao - The list of entities is: [User{firstName='Joe', lastName='Coyne', userName='jcoyne', dateOfBirth='1964-04-01'}, User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}, User{firstName='Karen', lastName='Mack', userName='kmack', dateOfBirth='1986-07-08'}]
+[DEBUG] 2025-03-25 19:11:56.450 [main] GenericDao - Searching for entities with lastName = Curry
+[DEBUG] 2025-03-25 19:11:56.460 [main] GenericDao - The list of entities is: [User{firstName='Barney', lastName='Curry', userName='bcurry', dateOfBirth='1947-11-11'}]
