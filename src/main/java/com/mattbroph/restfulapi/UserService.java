@@ -80,19 +80,47 @@ public class UserService {
     @Produces("application/json")
     public Response createUser(String userJson) throws JsonProcessingException {
 
-        ObjectMapper mapper = new ObjectMapper();
-        Map<String, String> map = mapper.readValue(userJson, Map.class);
 
-        String firstName = map.get("firstName");
-        String lastName = map.get("lastName");
-        String userName = map.get("userName");
-        LocalDate dateOfBirth = LocalDate.parse(map.get("dateOfBirth"));
+        try {
 
-        User newUser = new User(firstName, lastName, userName, dateOfBirth);
+            ObjectMapper mapper = new ObjectMapper();
+            Map<String, String> map = mapper.readValue(userJson, Map.class);
 
-        int insertedId = userDao.insert(newUser);
+            // Check that all user fields were submitted
+            if (!map.containsKey("firstName") || !map.containsKey("lastName")
+                    || !map.containsKey("userName") || !map.containsKey("dateOfBirth")) {
 
-        return Response.status(201).entity(String.valueOf(insertedId)).build();
+                return Response.status(400).entity("Missing required fields: firstName," +
+                 " lastName, userName, dateOfBirth").build();
+            }
+
+            String firstName = map.get("firstName");
+            String lastName = map.get("lastName");
+            String userName = map.get("userName");
+            String dateOfBirthString = map.get("dateOfBirth");
+            LocalDate dateOfBirth;
+
+            // Check the date of birth format
+            try {
+                dateOfBirth = LocalDate.parse(dateOfBirthString);
+            } catch (Exception e) {
+                return Response.status(400).entity("Invalid date format. Expected format: YYYY-MM-DD").build();
+            }
+
+            // Create the new user and insert them into the database
+            User newUser = new User(firstName, lastName, userName, dateOfBirth);
+            int insertedId = userDao.insert(newUser);
+            // Return successful response
+            return Response.status(201).entity(String.valueOf("User created with id: " + insertedId)).build();
+
+        } catch (JsonProcessingException e) {
+
+            return Response.status(400).entity("Invalid JSON format. Please review documentation.").build();
+
+        } catch (Exception e) {
+
+            return Response.status(500).entity("Internal server error: " + e.getMessage()).build();
+        }
 
     }
 
@@ -101,7 +129,7 @@ public class UserService {
     @Path("{id}")
     @Consumes("application/json")
     @Produces("application/json")
-    public Response createUser(String userJson, @PathParam("id") int id) throws JsonProcessingException {
+    public Response updateUser(String userJson, @PathParam("id") int id) throws JsonProcessingException {
 
         User userToUpdate = (User)userDao.getById(id);
         ObjectMapper mapper = new ObjectMapper();
