@@ -4,34 +4,70 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mattbroph.entity.User;
 import com.mattbroph.persistence.GenericDao;
+import com.mattbroph.persistence.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Response;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 
 @Path("/users")
 
-public class UserService {
+public class UserService implements PropertiesLoader {
 
     // Class instance variables
     private final GenericDao userDao = new GenericDao(User.class);
     private final Logger logger = LogManager.getLogger(this.getClass());
+    private final Properties apiKeyProperties = loadProperties("/apiKeys.properties");;
+
+
+    /**
+     * Validates the API key in the header matches the api key in the properties file.
+     *
+     * @param headers the request headers
+     * @return the response based on validation steps
+     */
+    private Response validateApiKey(HttpHeaders headers) {
+
+        // Validate the API key
+        String storedApiKey = apiKeyProperties.getProperty("api.key");
+        String requestApiKey = headers.getHeaderString("X-API-KEY");
+        // If the API key is missing, send a 401
+        if (requestApiKey == null || requestApiKey.isEmpty()) {
+            return Response.status(401).entity("Missing X-API-KEY").build();
+        }
+        // If the API key exists, but is not valid, send a 401
+        if (!storedApiKey.equals(requestApiKey)) {
+            return Response.status(401).entity("Invalid X-API-KEY").build();
+        }
+        // If API key matches what's in the properties file, return null and continue processing
+        return null;
+
+    }
 
 
     // Call http://localhost:8080/userDisplay/services/users
     @GET
     @Produces("application/json")
-    public Response getUsers(@QueryParam("lastName") String lastName)
+    public Response getUsers(
+            @QueryParam("lastName") String lastName,
+            @Context HttpHeaders headers)
             throws JsonProcessingException {
 
         List<User> users;
         ObjectMapper objectMapper = new ObjectMapper();
+
+        // Validate the API key
+        Response validationResponse = validateApiKey(headers);
+        if (validationResponse != null) {
+            return validationResponse;
+        }
 
         /* If last name param was provided, use it for the search.
         * If last name param not provided, get all users.
@@ -56,7 +92,15 @@ public class UserService {
     @GET
     @Path("{id}")
     @Produces("application/json")
-    public Response getUserFromId(@PathParam("id") int id) throws JsonProcessingException {
+    public Response getUserFromId(
+            @PathParam("id") int id,
+            @Context HttpHeaders headers) throws JsonProcessingException {
+
+        // Validate the API key
+        Response validationResponse = validateApiKey(headers);
+        if (validationResponse != null) {
+            return validationResponse;
+        }
 
         ObjectMapper objectMapper = new ObjectMapper();
         User user = (User)userDao.getById(id);
@@ -74,11 +118,19 @@ public class UserService {
     @DELETE
     @Path("{id}")
     @Produces("application/json")
-    public Response deleteUserWithId(@PathParam("id") int id) throws JsonProcessingException {
+    public Response deleteUserWithId(
+            @PathParam("id") int id,
+            @Context HttpHeaders headers) {
+
+        // Validate the API key
+        Response validationResponse = validateApiKey(headers);
+        if (validationResponse != null) {
+            return validationResponse;
+        }
 
         User userToDelete = (User)userDao.getById(id);
 
-        // If user doesn't exist send them a 404
+        // If user doesn't exist send a 404 in the response
         if (userToDelete == null) {
             return Response.status(404).entity("User not found").build();
         }
@@ -86,7 +138,7 @@ public class UserService {
         // Delete the user
         userDao.delete(userToDelete);
 
-        String successResponse = "{0}";
+        String successResponse = "User has been deleted";
         return Response.status(200).entity(successResponse).build();
     }
 
@@ -94,8 +146,15 @@ public class UserService {
     @POST
     @Consumes("application/json")
     @Produces("application/json")
-    public Response createUser(String userJson) throws JsonProcessingException {
+    public Response createUser(
+            String userJson,
+            @Context HttpHeaders headers) {
 
+        // Validate the API key
+        Response validationResponse = validateApiKey(headers);
+        if (validationResponse != null) {
+            return validationResponse;
+        }
 
         try {
 
@@ -148,7 +207,16 @@ public class UserService {
     @Path("{id}")
     @Consumes("application/json")
     @Produces("application/json")
-    public Response updateUser(String userJson, @PathParam("id") int id) throws JsonProcessingException {
+    public Response updateUser(
+            String userJson,
+            @PathParam("id") int id,
+            @Context HttpHeaders headers) {
+
+        // Validate the API key
+        Response validationResponse = validateApiKey(headers);
+        if (validationResponse != null) {
+            return validationResponse;
+        }
 
         try {
             // Get the user to update
