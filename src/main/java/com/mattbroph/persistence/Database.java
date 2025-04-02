@@ -1,21 +1,17 @@
-package edu.matc.persistence;
+package com.mattbroph.persistence;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.*;
 import java.util.Properties;
 // log4J
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
 /**
  * Provides access to the database
  * Created on 8/31/16.

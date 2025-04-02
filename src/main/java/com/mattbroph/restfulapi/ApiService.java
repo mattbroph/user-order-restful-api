@@ -1,4 +1,4 @@
-package edu.matc.restfulapi;
+package com.mattbroph.restfulapi;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

@@ -23,13 +23,13 @@ DROP TABLE IF EXISTS `orders`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orders` (
-                          `id` int NOT NULL AUTO_INCREMENT,
-                          `description` varchar(100) DEFAULT NULL,
-                          `user_id` int DEFAULT NULL,
-                          PRIMARY KEY (`id`),
-                          KEY `orders_users_id_fk` (`user_id`),
-                          CONSTRAINT `orders_users_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `description` varchar(100) DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `orders_users_id_fk` (`user_id`),
+  CONSTRAINT `orders_users_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (3,'work equipment',2),(4,'paper products',1),(5,'test products',4),(6,'party supplies',4);
+INSERT INTO `orders` VALUES (3,'work equipment',2),(4,'paper products',1);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -50,13 +50,13 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-                         `id` int NOT NULL AUTO_INCREMENT,
-                         `first_name` varchar(25) DEFAULT NULL,
-                         `last_name` varchar(30) DEFAULT NULL,
-                         `user_name` varchar(15) DEFAULT NULL,
-                         `date_of_birth` date DEFAULT NULL,
-                         PRIMARY KEY (`id`),
-                         UNIQUE KEY `users_user_name_uindex` (`user_name`)
+  `id` int NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(25) DEFAULT NULL,
+  `last_name` varchar(30) DEFAULT NULL,
+  `user_name` varchar(15) DEFAULT NULL,
+  `date_of_birth` date DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_user_name_uindex` (`user_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -79,4 +79,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-01 15:18:59
+-- Dump completed on 2025-04-01 15:01:24

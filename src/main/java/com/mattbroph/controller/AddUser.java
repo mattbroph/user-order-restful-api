@@ -1,7 +1,7 @@
-package edu.matc.controller;
+package com.mattbroph.controller;
 
-import edu.matc.entity.User;
-import edu.matc.persistence.UserDao;
+import com.mattbroph.entity.User;
+import com.mattbroph.persistence.UserDao;
 
 import java.io.*;
 import java.time.LocalDate;

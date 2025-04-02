@@ -1,11 +1,10 @@
-package edu.matc.entity;
+package com.mattbroph.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.ejb.Local;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
