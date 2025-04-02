@@ -27,10 +27,26 @@ public class UserService {
     // Call http://localhost:8080/userDisplay/services/users
     @GET
     @Produces("application/json")
-    public Response getUsers() throws JsonProcessingException {
+    public Response getUsers(@QueryParam("lastName") String lastName)
+            throws JsonProcessingException {
 
-        List<User> users = userDao.getAll();
+        List<User> users;
         ObjectMapper objectMapper = new ObjectMapper();
+
+        /* If last name param was provided, use it for the search.
+        * If last name param not provided, get all users.
+        */
+        if (lastName != null && !lastName.isEmpty()) {
+            users = userDao.getByPropertyEqual("lastName", lastName);
+
+        } else {
+            users = userDao.getAll();
+        }
+
+        // If no users exist in the retrieval, respond with a 404
+        if (users.isEmpty()) {
+            return Response.status(404).entity("Users not found").build();
+        }
 
         String usersJson = objectMapper.writeValueAsString(users);
         return Response.status(200).entity(usersJson).build();
@@ -110,8 +126,11 @@ public class UserService {
             // Create the new user and insert them into the database
             User newUser = new User(firstName, lastName, userName, dateOfBirth);
             int insertedId = userDao.insert(newUser);
-            // Return successful response
-            return Response.status(201).entity(String.valueOf("User created with id: " + insertedId)).build();
+
+            // Send user back with successful response code
+            String newUserJson = mapper.writeValueAsString(newUser);
+
+            return Response.status(201).entity(String.valueOf(newUserJson)).build();
 
         } catch (JsonProcessingException e) {
 
@@ -131,30 +150,51 @@ public class UserService {
     @Produces("application/json")
     public Response updateUser(String userJson, @PathParam("id") int id) throws JsonProcessingException {
 
-        User userToUpdate = (User)userDao.getById(id);
-        ObjectMapper mapper = new ObjectMapper();
+        try {
+            // Get the user to update
+            User userToUpdate = (User)userDao.getById(id);
 
-        // Get the values from the json in the request body
-        Map<String, String> map = mapper.readValue(userJson, Map.class);
+            // If user doesn't exist send back a 404
+            if (userToUpdate == null) {
+                return Response.status(404).entity("User not found").build();
+            }
 
-        // Set the new values for the user
-        String firstName = map.get("firstName");
-        userToUpdate.setFirstName(firstName);
+            // Get the values from the json in the request body
+            ObjectMapper mapper = new ObjectMapper();
+            Map<String, String> map = mapper.readValue(userJson, Map.class);
 
-        String lastName = map.get("lastName");
-        userToUpdate.setLastName(lastName);
+            // If value exists, update the user's instance variable
+            if (map.containsKey("firstName")) {
+                userToUpdate.setFirstName(map.get("firstName"));
+            }
 
-        String userName = map.get("userName");
-        userToUpdate.setUserName(userName);
+            if (map.containsKey("lastName")) {
+                userToUpdate.setLastName(map.get("lastName"));
+            }
 
-        LocalDate dateOfBirth = LocalDate.parse(map.get("dateOfBirth"));
-        userToUpdate.setDateOfBirth(dateOfBirth);
+            if (map.containsKey("userName")) {
+                userToUpdate.setUserName(map.get("userName"));
+            }
+            if (map.containsKey("dateOfBirth")) {
+                userToUpdate.setDateOfBirth(LocalDate.parse(map.get("dateOfBirth")));
+            }
 
-        // Update the user in the database
-        userDao.update(userToUpdate);
+            // Update the user in the database
+            userDao.update(userToUpdate);
 
-        String successResponse = "{0}";
-        return Response.status(200).entity(successResponse).build();
+            // Send user back with successful response code
+            String userToUpdateJson = mapper.writeValueAsString(userToUpdate);
+            return Response.status(200).entity(userToUpdateJson).build();
+
+        } catch (JsonProcessingException e) {
+
+            return Response.status(400).entity("Invalid JSON format. Please review documentation.").build();
+
+        } catch (Exception e) {
+
+            return Response.status(500).entity("Internal server error: " + e.getMessage()).build();
+        }
+
     }
 
 
