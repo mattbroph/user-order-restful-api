@@ -1,6 +1,6 @@
-package edu.matc.persistence;
+package com.mattbroph.persistence;
 
-import edu.matc.entity.User;
+import com.mattbroph.entity.Order;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Expression;
 import jakarta.persistence.criteria.Root;
@@ -13,120 +13,121 @@ import org.hibernate.query.criteria.HibernateCriteriaBuilder;
 
 import java.util.List;
 
-public class UserDao {
+public class OrderDao {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
     SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
 
     /**
-     * Get user by id
+     * Get order by id
      */
-    public User getById(int id) {
+    public Order getById(int id) {
         Session session = sessionFactory.openSession();
-        User user = session.get(User.class, id);
+        Order order = session.get(Order.class, id);
         session.close();
-        return user;
+        return order;
     }
 
     /**
-     * update user
-     * @param user  User to be updated
+     * update order
+     * @param order  Order to be updated
      */
-    public void update(User user) {
+    public void update(Order order) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.merge(user);
+        session.merge(order);
         transaction.commit();
         session.close();
     }
 
     /**
-     * insert a new user
-     * @param user  User to be inserted
+     * insert a new order
+     * @param order  Order to be inserted
      */
-    public int insert(User user) {
+    public int insert(Order order) {
         int id = 0;
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.persist(user);
+        session.persist(order);
         transaction.commit();
-        id = user.getId();
+        id = order.getId();
         session.close();
         return id;
     }
 
     /**
-     * Delete a user
-     * @param user User to be deleted
+     * Delete a order
+     * @param order Order to be deleted
      */
-    public void delete(User user) {
+    public void delete(Order order) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(user);
+        session.delete(order);
         transaction.commit();
         session.close();
     }
 
 
-    /** Return a list of all users
+    /** Return a list of all orders
      *
-     * @return All users
+     * @return All orders
      */
-    public List<User> getAll() {
+    public List<Order> getAll() {
 
         Session session = sessionFactory.openSession();
 
         HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<User> query = builder.createQuery(User.class);
-        Root<User> root = query.from(User.class);
-        List<User> users = session.createSelectionQuery( query ).getResultList();
+        CriteriaQuery<Order> query = builder.createQuery(Order.class);
+        Root<Order> root = query.from(Order.class);
+        List<Order> orders = session.createSelectionQuery( query ).getResultList();
 
-        logger.debug("The list of users " + users);
+        logger.debug("The list of orders " + orders);
         session.close();
 
-        return users;
+        return orders;
     }
 
     /**
-     * Get user by property (exact match)
+     * Get order by property (exact match)
      * sample usage: getByPropertyEqual("lastname", "Curry")
      */
-    public List<User> getByPropertyEqual(String propertyName, String value) {
+    public List<Order> getByPropertyEqual(String propertyName, String value) {
         Session session = sessionFactory.openSession();
 
-        logger.debug("Searching for user with " + propertyName + " = " + value);
+        logger.debug("Searching for order with " + propertyName + " = " + value);
 
         HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<User> query = builder.createQuery(User.class);
-        Root<User> root = query.from(User.class);
+        CriteriaQuery<Order> query = builder.createQuery(Order.class);
+        Root<Order> root = query.from(Order.class);
         query.select(root).where(builder.equal(root.get(propertyName), value));
-        List<User> users = session.createSelectionQuery( query ).getResultList();
+        List<Order> orders = session.createSelectionQuery( query ).getResultList();
 
-        logger.debug("The list of users is: " + users);
+        logger.debug("The list of orders is: " + orders);
         session.close();
-        return users;
+        return orders;
     }
 
     /**
-     * Get user by property (like)
+     * Get order by property (like)
      * sample usage: getByPropertyLike("lastname", "C")
      */
-    public List<User> getByPropertyLike(String propertyName, String value) {
+    public List<Order> getByPropertyLike(String propertyName, String value) {
         Session session = sessionFactory.openSession();
 
-        logger.debug("Searching for user with {} = {}",  propertyName, value);
+        logger.debug("Searching for order with {} = {}",  propertyName, value);
 
         HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<User> query = builder.createQuery(User.class);
-        Root<User> root = query.from(User.class);
+        CriteriaQuery<Order> query = builder.createQuery(Order.class);
+        Root<Order> root = query.from(Order.class);
         Expression<String> propertyPath = root.get(propertyName);
 
         query.where(builder.like(propertyPath, "%" + value + "%"));
 
-        List<User> users = session.createQuery( query ).getResultList();
-        logger.debug("The list of users is: " + users);
+        List<Order> orders = session.createQuery( query ).getResultList();
+        logger.debug("The list of orders is: " + orders);
         session.close();
-        return users;
+        return orders;
     }
+
 
 }

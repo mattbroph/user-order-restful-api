@@ -1,6 +1,6 @@
-package edu.matc.controller;
+package com.mattbroph.controller;
 
-import edu.matc.persistence.UserDao;
+import com.mattbroph.persistence.UserDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

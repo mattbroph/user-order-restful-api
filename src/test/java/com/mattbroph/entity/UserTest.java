@@ -1,4 +1,4 @@
-package edu.matc.entity;
+package com.mattbroph.entity;
 
 import org.junit.jupiter.api.Test;
 

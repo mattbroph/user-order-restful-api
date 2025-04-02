@@ -1,7 +1,7 @@
-package edu.matc.persistence;
+package com.mattbroph.persistence;
 
-import edu.matc.entity.Order;
-import edu.matc.entity.User;
+import com.mattbroph.entity.Order;
+import com.mattbroph.entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -27,18 +27,18 @@ class OrderDaoTest {
 
     @Test
     void getById() {
-        Order retrievedOrder = (Order)genericDao.getById(1);
+        Order retrievedOrder = (Order)genericDao.getById(6);
         assertNotNull(retrievedOrder);
         assertEquals("party supplies", retrievedOrder.getDescription());
-        assertEquals(3, retrievedOrder.getUser().getId());
+        assertEquals(4, retrievedOrder.getUser().getId());
     }
 
     @Test
     void update() {
-        Order order = (Order)genericDao.getById(1);
+        Order order = (Order)genericDao.getById(3);
         order.setDescription("more cool stuff");
         genericDao.update(order);
-        Order retrievedOrder = (Order)genericDao.getById(1);
+        Order retrievedOrder = (Order)genericDao.getById(3);
         assertEquals("more cool stuff", retrievedOrder.getDescription());
 
     }

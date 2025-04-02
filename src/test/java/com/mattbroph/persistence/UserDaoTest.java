@@ -1,7 +1,7 @@
-package edu.matc.persistence;
+package com.mattbroph.persistence;
 
-import edu.matc.entity.Order;
-import edu.matc.entity.User;
+import com.mattbroph.entity.Order;
+import com.mattbroph.entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -72,15 +72,15 @@ class UserDaoTest {
 
     @Test
     void delete() {
-        User userToDelete = (User)genericDao.getById(3);
+        User userToDelete = (User)genericDao.getById(4);
         genericDao.delete(userToDelete);
-        assertNull((User)genericDao.getById(3));
+        assertNull((User)genericDao.getById(4));
     }
 
     @Test
     void deleteWithOrders() {
         // get the user we want to delete that has 2 orders associated
-        User userToBeDeleted = (User)genericDao.getById(3);
+        User userToBeDeleted = (User)genericDao.getById(4);
         List<Order> orders = userToBeDeleted.getOrders();
         // get the associated order numbers
         int orderNumber1 = orders.get(0).getId();
@@ -88,7 +88,7 @@ class UserDaoTest {
         // delete the user
         genericDao.delete(userToBeDeleted);
         // verify user is deleted
-        assertNull((User)genericDao.getById(3));
+        assertNull((User)genericDao.getById(4));
         // verify the orders are deleted
         assertNull(genericDaoOrder.getById(orderNumber1));
         assertNull(genericDaoOrder.getById(orderNumber2));
@@ -99,20 +99,20 @@ class UserDaoTest {
     @Test
     void getAll() {
         List<User> users = (List<User>)genericDao.getAll();
-        assertEquals(6, users.size());
+        assertEquals(5, users.size());
     }
 
     @Test
     void getByPropertyEqual() {
-        List<User> users = (List<User>)genericDao.getByPropertyLike("lastName", "Curry");
+        List<User> users = (List<User>)genericDao.getByPropertyLike("lastName", "Mack");
         assertEquals(1, users.size());
-        assertEquals(3, users.get(0).getId());
+        assertEquals(4, users.get(0).getId());
     }
 
     @Test
     void getByPropertyLike() {
 
-        List<User> users = (List<User>)genericDao.getByPropertyLike("lastName", "c");
-        assertEquals(3, users.size());
+        List<User> users = (List<User>)genericDao.getByPropertyLike("lastName", "k");
+        assertEquals(2, users.size());
     }
 }

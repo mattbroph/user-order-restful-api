@@ -6,7 +6,7 @@
 <hibernate-configuration>
     <session-factory>
         <!-- DB Table name in url must be updated-->
-        <property name="connection.url">jdbc:mysql://localhost:3306/sample_test</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/api_demo_test</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
         <!-- Username & Pass-->
@@ -21,8 +21,8 @@
 
         <!--Include all JavaBean classes that map to table in DB need to be
         include here -->
-        <mapping class="edu.matc.entity.User"/>
-        <mapping class="edu.matc.entity.Order"/>
+        <mapping class="com.mattbroph.entity.User"/>
+        <mapping class="com.mattbroph.entity.Order"/>
 
     </session-factory>
 
