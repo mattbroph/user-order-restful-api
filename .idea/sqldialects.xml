@@ -2,10 +2,7 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$USER_HOME$/api_demo_test_localhost-2025_04_01_15_00_08-dump.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/dba/api_demo_test_localhost-2025_04_01_15_01_24-dump.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/dba/api_demo_test_localhost-2025_04_01_15_18_59-dump.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/dba/clean_db.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/dba/sample_test_localhost-2025_04_01_14_55_36-dump.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/test/resources/clean_db.sql" dialect="MySQL" />
   </component>
 </project>

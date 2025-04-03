@@ -1,6 +1,7 @@
 package com.mattbroph.controller;
 
-import com.mattbroph.persistence.UserDao;
+import com.mattbroph.entity.User;
+import com.mattbroph.persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,7 +25,7 @@ public class SearchUser extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String searchTerm = req.getParameter("searchTerm");
-        UserDao userDao = new UserDao();
+        GenericDao userDao = new GenericDao(User.class);
         /* If search term is null, then get all users.
         * If search term is not null, then use the search criteria.
         */

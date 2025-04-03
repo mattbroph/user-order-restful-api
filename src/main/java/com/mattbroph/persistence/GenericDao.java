@@ -62,7 +62,6 @@ public class GenericDao<T> {
         session.close();
     }
 
-    // TODO UPDATE THIS TOO!!
     /**
      * Insert a new entity
      * @param entity  Entity to be inserted
@@ -71,10 +70,6 @@ public class GenericDao<T> {
         int id = 0;
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
-        // Cannot use entity.getId() since it doesn't know the class yet...
-        // Referenced this site below to find session.save which returns an int of the primary key
-        // https://stackoverflow.com/questions/5862680/whats-the-difference-between-session-persist-and-session-save-in-hibernate
-        // session.persist(entity); - could not use
         id = (int)session.save(entity);
         transaction.commit();
         session.close();
