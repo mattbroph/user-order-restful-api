@@ -2,6 +2,7 @@ package com.mattbroph.restfulapi;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mattbroph.entity.Order;
 import com.mattbroph.entity.User;
 import com.mattbroph.persistence.GenericDao;
 import com.mattbroph.persistence.PropertiesLoader;
@@ -23,6 +24,7 @@ public class UserService implements PropertiesLoader {
 
     // Class instance variables
     private final GenericDao userDao = new GenericDao(User.class);
+    private final GenericDao orderDao = new GenericDao(Order.class);
     private final Logger logger = LogManager.getLogger(this.getClass());
     private final Properties apiKeyProperties = loadProperties("/apiKeys.properties");;
 
@@ -66,7 +68,7 @@ public class UserService implements PropertiesLoader {
             @Context HttpHeaders headers)
             throws JsonProcessingException {
 
-        // Endpoint http://localhost:8080/userDisplay/services/users
+        // Endpoint http://localhost:8080/userdisplayexercise_war/services/users
 
         List<User> users;
         ObjectMapper objectMapper = new ObjectMapper();
@@ -111,7 +113,7 @@ public class UserService implements PropertiesLoader {
             @PathParam("id") int id,
             @Context HttpHeaders headers) throws JsonProcessingException {
 
-        // Endpoint http://localhost:8080/userDisplay/services/users/{idToGet}
+        // Endpoint http://localhost:8080/userdisplayexercise_war/services/users/{idToGet}
 
         // Validate the API key
         Response validationResponse = validateApiKey(headers);
@@ -144,7 +146,7 @@ public class UserService implements PropertiesLoader {
             @PathParam("id") int id,
             @Context HttpHeaders headers) {
 
-        // Endpoint http://localhost:8080/userDisplay/services/users/{idToDelete}
+        // Endpoint http://localhost:8080/userdisplayexercise_war/services/users/{idToDelete}
 
         // Validate the API key
         Response validationResponse = validateApiKey(headers);
@@ -180,7 +182,7 @@ public class UserService implements PropertiesLoader {
             String userJson,
             @Context HttpHeaders headers) {
 
-        // Endpoint http://localhost:8080/userDisplay/services/users
+        // Endpoint http://localhost:8080/userdisplayexercise_war/services/users
 
         // Validate the API key
         Response validationResponse = validateApiKey(headers);
@@ -242,7 +244,7 @@ public class UserService implements PropertiesLoader {
      * @param headers the request headers
      * @return the response
      */
-    // Call http://localhost:8080/userDisplay/services/users/{idToUpdate}
+    // Call http://localhost:8080/userdisplayexercise_war/services/users/{idToUpdate}
     @PUT
     @Path("{id}")
     @Consumes("application/json")
@@ -305,5 +307,63 @@ public class UserService implements PropertiesLoader {
 
     }
 
+
+    /**
+     * Adds a new order to a user
+     * @param orderJson the data used to construct a new user
+     * @param headers the request headers
+     * @return the response
+     */
+    @POST
+    @Consumes("application/json")
+    @Produces("application/json")
+    @Path("{id}/orders")
+    public Response createOrder(
+            String orderJson,
+            @PathParam("id") int id,
+            @Context HttpHeaders headers) {
+
+        // Endpoint http://localhost:8080/userdisplayexercise_war/services/users/24/orders
+
+        // Validate the API key
+        Response validationResponse = validateApiKey(headers);
+        if (validationResponse != null) {
+            return validationResponse;
+        }
+
+        try {
+
+            ObjectMapper mapper = new ObjectMapper();
+            Map<String, String> map = mapper.readValue(orderJson, Map.class);
+
+            // Check that all user fields were submitted
+            if (!map.containsKey("description")) {
+
+                return Response.status(400).entity("Missing required field: description").build();
+            }
+
+            String description = map.get("description");
+
+            // Create the new order and insert them into the database
+            User user = (User)userDao.getById(id);
+            Order order = new Order(description, user);
+            int insertedId = orderDao.insert(order);
+
+            // Send order back with successful response code
+            Order newOrder = (Order)orderDao.getById(insertedId);
+            String newOrderJson = mapper.writeValueAsString(newOrder);
+
+            return Response.status(201).entity(("Order " + insertedId + " created: " + newOrderJson)).build();
+
+        } catch (JsonProcessingException e) {
+
+            return Response.status(400).entity("Invalid JSON format. Please review documentation.").build();
+
+        } catch (Exception e) {
+
+            return Response.status(500).entity("Internal server error: " + e.getMessage()).build();
+        }
+
+    }
 
 }
