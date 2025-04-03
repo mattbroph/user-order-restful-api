@@ -1,7 +1,7 @@
-# POST /services/users/{userId}
+# POST /services/users/{userId}/orders
 
 ## Description
-Adds a new user
+Adds a new order by user id
 
 ## Request body params (JSON)
 
