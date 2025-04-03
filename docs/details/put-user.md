@@ -30,26 +30,31 @@ User not found
 * Content:
 
 ```json
-{
-  "id": 32,
-  "orders": [],
-  "userAge": 64,
-  "firstName": "Mark",
-  "lastName": "Jackson",
-  "userName": "markJackson",
-  "dateOfBirth": {
-    "year": 1960,
-    "month": "JULY",
-    "dayOfWeek": "MONDAY",
-    "dayOfYear": 200,
-    "chronology": {
-      "id": "ISO",
-      "calendarType": "iso8601"
-    },
-    "era": "CE",
-    "leapYear": true,
-    "monthValue": 7,
-    "dayOfMonth": 18
-  }
+User 1 has been updated: {
+    "id": 1,
+    "orders": [
+        {
+            "id": 4,
+            "description": "paper products"
+        }
+    ],
+    "userAge": 61,
+    "firstName": "Larry",
+    "lastName": "Coyne",
+    "userName": "jcoyne",
+    "dateOfBirth": {
+        "year": 1964,
+        "month": "APRIL",
+        "monthValue": 4,
+        "dayOfMonth": 1,
+        "chronology": {
+                "calendarType": "iso8601",
+                "id": "ISO"
+          },
+        "era": "CE",
+        "leapYear": true,
+        "dayOfWeek": "WEDNESDAY",
+        "dayOfYear": 92
+    }
 }
 ```

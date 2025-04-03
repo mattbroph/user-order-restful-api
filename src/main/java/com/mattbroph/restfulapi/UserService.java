@@ -138,7 +138,7 @@ public class UserService implements PropertiesLoader {
         // Delete the user
         userDao.delete(userToDelete);
 
-        String successResponse = "User has been deleted";
+        String successResponse = "User " + userToDelete.getId() + " has been deleted";
         return Response.status(200).entity(successResponse).build();
     }
 
@@ -189,7 +189,7 @@ public class UserService implements PropertiesLoader {
             // Send user back with successful response code
             String newUserJson = mapper.writeValueAsString(newUser);
 
-            return Response.status(201).entity(String.valueOf(newUserJson)).build();
+            return Response.status(201).entity(("User " + insertedId + " created: " + newUserJson)).build();
 
         } catch (JsonProcessingException e) {
 
@@ -252,7 +252,7 @@ public class UserService implements PropertiesLoader {
 
             // Send user back with successful response code
             String userToUpdateJson = mapper.writeValueAsString(userToUpdate);
-            return Response.status(200).entity(userToUpdateJson).build();
+            return Response.status(200).entity("User " + userToUpdate.getId() + " has been updated: " + userToUpdateJson).build();
 
         } catch (JsonProcessingException e) {
 

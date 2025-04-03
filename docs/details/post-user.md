@@ -33,26 +33,26 @@ Missing required fields: firstName, lastName, userName, dateOfBirth
 * Content:
 
 ```json
-{
-  "id": 32,
-  "orders": [],
-  "userAge": 64,
-  "firstName": "Mark",
-  "lastName": "Jackson",
-  "userName": "markJackson",
-  "dateOfBirth": {
-    "year": 1960,
-    "month": "JULY",
-    "dayOfWeek": "MONDAY",
-    "dayOfYear": 200,
-    "chronology": {
-      "id": "ISO",
-      "calendarType": "iso8601"
-    },
-    "era": "CE",
-    "leapYear": true,
-    "monthValue": 7,
-    "dayOfMonth": 18
-  }
+User 34 created: {
+    "id": 34,
+    "orders": [],
+    "userAge": 64,
+    "firstName": "Jerry",
+    "lastName": "Barry",
+    "userName": "jBar",
+    "dateOfBirth": {
+        "year": 1960,
+        "month": "JULY",
+        "chronology": {
+            "id": "ISO",
+            "calendarType": "iso8601"
+        },
+        "era": "CE",
+        "leapYear": true,
+        "monthValue": 7,
+        "dayOfMonth": 16,
+        "dayOfWeek": "SATURDAY",
+        "dayOfYear": 198
+    }
 }
 ```
