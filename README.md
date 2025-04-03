@@ -8,7 +8,7 @@ This API allows a company to manage its users and track their orders.
 Users can have multiple orders, and the API provides endpoints to retrieve,
 create, update, and delete both users and orders. This project serves as a
 learning experience and a demonstration of API design, security, and best practices.
-<br>
+
 This project is a work-in-progress and is intended to demonstrate backend development 
 concepts. Future improvements may include JWT authentication, pagination, and
 additional search/filter capabilities.
@@ -31,8 +31,8 @@ additional search/filter capabilities.
 | id          | Unique identifier        | int              |
 | firstName   | The user's first name    | String           |
 | lastName    | The user's last name     | String           |
-| userName    | The user's date of birth | LocalDate object |
-| dateOfBirth | The user's first name    | String           |
+| userName    | The user's username      | String           |
+| dateOfBirth | The user's date of birth | LocalDate object |
 | age         | The user's current age   | int              |
 
 
@@ -43,7 +43,15 @@ additional search/filter capabilities.
 | description | Describes the order           | String      |
 | userId      | Id of user who made the order | int         |
 
-## Service calls
+## Authentication
+This API uses a simple API key mechanism for authentication (for demonstration purposes only).
+
+Each request must include this API key in the request headers:
+
+* Header: X-API-KEY
+* Value: 123456789
+
+## Service Endpoints
 
 JSON only
 API key must be: "x-api-key": "123456789" this is for demonstration purposes
