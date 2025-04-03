@@ -51,14 +51,22 @@ public class UserService implements PropertiesLoader {
 
     }
 
-
-    // Call http://localhost:8080/userDisplay/services/users
+    /**
+     * Gets a list of all users in the database.
+     *
+     * @param lastName optional parameter to search by user last name
+     * @param headers the request headers
+     * @return the response
+     * @throws JsonProcessingException if error occurs while processing json
+     */
     @GET
     @Produces("application/json")
     public Response getUsers(
             @QueryParam("lastName") String lastName,
             @Context HttpHeaders headers)
             throws JsonProcessingException {
+
+        // Endpoint http://localhost:8080/userDisplay/services/users
 
         List<User> users;
         ObjectMapper objectMapper = new ObjectMapper();
@@ -88,13 +96,22 @@ public class UserService implements PropertiesLoader {
         return Response.status(200).entity(usersJson).build();
     }
 
-    // Call http://localhost:8080/userDisplay/services/users/{idToGet}
+
+    /**
+     * Gets a user based on user id
+     * @param id the users unique id
+     * @param headers the request headers
+     * @return the response
+     * @throws JsonProcessingException if error occurs while processing json
+     */
     @GET
     @Path("{id}")
     @Produces("application/json")
     public Response getUserFromId(
             @PathParam("id") int id,
             @Context HttpHeaders headers) throws JsonProcessingException {
+
+        // Endpoint http://localhost:8080/userDisplay/services/users/{idToGet}
 
         // Validate the API key
         Response validationResponse = validateApiKey(headers);
@@ -114,13 +131,20 @@ public class UserService implements PropertiesLoader {
         return Response.status(200).entity(userJson).build();
     }
 
-    // Call http://localhost:8080/userDisplay/services/users/{idToDelete}
+    /**
+     * Deletes a user based on user id
+     * @param id the user's unique id
+     * @param headers the request headers
+     * @return the response
+     */
     @DELETE
     @Path("{id}")
     @Produces("application/json")
     public Response deleteUserWithId(
             @PathParam("id") int id,
             @Context HttpHeaders headers) {
+
+        // Endpoint http://localhost:8080/userDisplay/services/users/{idToDelete}
 
         // Validate the API key
         Response validationResponse = validateApiKey(headers);
@@ -142,13 +166,21 @@ public class UserService implements PropertiesLoader {
         return Response.status(200).entity(successResponse).build();
     }
 
-    // Call http://localhost:8080/userDisplay/services/users
+
+    /**
+     * Adds a new user to the database
+     * @param userJson the data used to construct a new user
+     * @param headers the request headers
+     * @return the response
+     */
     @POST
     @Consumes("application/json")
     @Produces("application/json")
     public Response createUser(
             String userJson,
             @Context HttpHeaders headers) {
+
+        // Endpoint http://localhost:8080/userDisplay/services/users
 
         // Validate the API key
         Response validationResponse = validateApiKey(headers);
@@ -202,6 +234,14 @@ public class UserService implements PropertiesLoader {
 
     }
 
+
+    /**
+     * Updates a user in the database
+     * @param userJson the data used to update the user
+     * @param id the unique user id
+     * @param headers the request headers
+     * @return the response
+     */
     // Call http://localhost:8080/userDisplay/services/users/{idToUpdate}
     @PUT
     @Path("{id}")
@@ -264,19 +304,6 @@ public class UserService implements PropertiesLoader {
         }
 
     }
-
-
-
-    /*
-     * Referenced site below on how to convert List to JSON using Jackson
-     * https://www.baeldung.com/java-converting-list-to-json-array
-     * Reference site below to handle infinite loop by using
-     * https://stackoverflow.com/questions/3325387/infinite-recursion-with-jackson-json-and-hibernate-jpa-issue
-     */
-    /*
-     * Reference section 3.5 Creating Java Map From JSON String
-     * https://www.baeldung.com/jackson-object-mapper-tutorial
-     */
 
 
 }
