@@ -39,7 +39,6 @@ additional search/filter capabilities.
 |-------------|-------------------------------|-------------|
 | id          | Unique identifier             | int         |
 | description | Describes the order           | String      |
-| userId      | Id of user who made the order | int         |
 
 ## Authentication
 This API uses a simple API key mechanism for authentication (for demonstration purposes only).
@@ -51,17 +50,17 @@ Each request must include this API key in the request headers:
 
 ## Service Endpoints
 
-| Method | URI                                                        | Description               | Status   |
-|--------|------------------------------------------------------------|---------------------------|----------|
-| GET    | [/services/users](docs/details/get-all-users.md)           | Returns all users         | Complete |
-| GET    | [/services/users/{userId}](docs/details/get-user-by-id.md) | Returns user by id        | Complete |
-| POST   | [/services/users](docs/details/post-user.md)               | Adds a new user           | Complete |
-| PUT    | [/services/users/{userId}](docs/details/put-user.md)       | Updates a user by id      | Complete |
-| DELETE | [/services/users/{userId}](docs/details/delete-user.md)    | Deletes a user by id      | Complete |
-| GET    | /services/users/{userId}/orders                            | Returns orders by user id | To Do    |
-| POST   | /services/users/{userId}/orders                            | Adds a new order by user id |To Do    |
-| PUT    | /services/orders/{orderId}                                 | Updates an order by order id |To Do    |
-| DELETE | /services/orders/{orderId}                                 | Deletes an order by order id |To Do    |
+| Method | URI                                                           | Description               | Status   |
+|--------|---------------------------------------------------------------|---------------------------|----------|
+| GET    | [/services/users](docs/details/get-all-users.md)              | Returns all users         | Complete |
+| GET    | [/services/users/{userId}](docs/details/get-user-by-id.md)    | Returns user by id        | Complete |
+| POST   | [/services/users](docs/details/post-user.md)                  | Adds a new user           | Complete |
+| PUT    | [/services/users/{userId}](docs/details/put-user.md)          | Updates a user by id      | Complete |
+| DELETE | [/services/users/{userId}](docs/details/delete-user.md)       | Deletes a user by id      | Complete |
+| GET    | /services/users/{userId}/orders                               | Returns orders by user id | To Do    |
+| POST   | [/services/users/{userId}/orders](docs/details/post-order.md) | Adds a new order by user id | Complete |
+| PUT    | /services/orders/{orderId}                                    | Updates an order by order id | To Do    |
+| DELETE | /services/orders/{orderId}                                    | Deletes an order by order id | To Do    |
 
 
 

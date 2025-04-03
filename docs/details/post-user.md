@@ -24,7 +24,7 @@ Adds a new user
 ## Error Response:
 * Status code 400
 * Content:
-```json
+```
 Missing required fields: firstName, lastName, userName, dateOfBirth
 ```
 

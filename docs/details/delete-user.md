@@ -6,7 +6,7 @@ Deletes a user by id
 ## Error Response:
 * Status code 400
 * Content:
-```json
+```
 User not found
 ```
 
