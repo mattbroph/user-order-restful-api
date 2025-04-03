@@ -1,7 +1,7 @@
 package com.mattbroph.controller;
 
 import com.mattbroph.entity.User;
-import com.mattbroph.persistence.UserDao;
+import com.mattbroph.persistence.GenericDao;
 
 import java.io.*;
 import java.time.LocalDate;
@@ -44,7 +44,7 @@ public class AddUser extends HttpServlet {
         List<User> userList = new ArrayList<User>();
 
         // Create a UserData Instance
-        UserDao userDao = new UserDao();
+        GenericDao userDao = new GenericDao(User.class);
 
         // Extract data for the new user from the HTML form
         String firstName = request.getParameter("firstName");
@@ -61,7 +61,7 @@ public class AddUser extends HttpServlet {
         newUserID = userDao.insert(newUser);
 
         // Add the new user to the list for the jsp
-        userList.add(userDao.getById(newUserID));
+        userList.add((User)userDao.getById(newUserID));
 
         // Provide a success or fail message for the db insert via the Session
         if (newUserID > 0) {

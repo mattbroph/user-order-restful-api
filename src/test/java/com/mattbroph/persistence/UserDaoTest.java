@@ -12,8 +12,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UserDaoTest {
 
-    // Step 1 is always create the class / thing we want to test
-    UserDao userDao;
     GenericDao genericDao;
     GenericDao genericDaoOrder;
 
@@ -41,13 +39,12 @@ class UserDaoTest {
     @Test
     void update() {
 
-        userDao = new UserDao();
-        User userToUpdate = userDao.getById(1);
+        User userToUpdate = (User)genericDao.getById(1);
         userToUpdate.setLastName("Smith");
-        userDao.update(userToUpdate);
+        genericDao.update(userToUpdate);
 
         // retrieve the user and check that the name change worked
-        User actualUser = userDao.getById(1);
+        User actualUser = (User)genericDao.getById(1);
         assertEquals("Smith", actualUser.getLastName());
 
     }

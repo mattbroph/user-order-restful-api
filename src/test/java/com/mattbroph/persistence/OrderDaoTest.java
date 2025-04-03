@@ -18,9 +18,6 @@ class OrderDaoTest {
     void setUp() {
         Database database = Database.getInstance();
         database.runSQL("clean_db.sql");
-        /*******************************************************************************
-         * ATTENTION: Need to create two in order to do insert with two class types!!!!!
-         ********************************************************************************/
         genericDao = new GenericDao(Order.class);
         genericDaoUser = new GenericDao(User.class);
     }

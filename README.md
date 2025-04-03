@@ -1,7 +1,6 @@
 # User - Order - API
 A RESTful web service designed to manage users and their associated orders for 
-a fictional company. Built with Java, Hibernate, JAX-RS API, Jersey, Log4j, and
-JUnit, this API demonstrates essential CRUD operations.
+a fictional company. Built with Java, Hibernate, JAX-RS API, Jersey, and Log4j.
 
 ## Overview
 This API allows a company to manage its users and track their orders.
@@ -20,7 +19,6 @@ additional search/filter capabilities.
 * Uses Hibernate for data persistence
 * Built with JAX-RS (Jersey) for RESTful services
 * Logging with Log4j
-* Unit testing with JUnit
 
 ## Resources
 
@@ -52,13 +50,6 @@ Each request must include this API key in the request headers:
 * Value: 123456789
 
 ## Service Endpoints
-
-JSON only
-API key must be: "x-api-key": "123456789" this is for demonstration purposes
- 
-(will link the URI to a page that shows description and success code and content examples)
-
-click uri for details
 
 | Method | URI                                                        | Description               | Status   |
 |--------|------------------------------------------------------------|---------------------------|----------|
