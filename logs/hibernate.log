@@ -1000,3 +1000,500 @@
 [DEBUG] 2025-04-03 13:57:20.219 [http-nio-8080-exec-5] ResultsHelper - Collection fully initialized: [com.mattbroph.entity.User.orders#26]
 [DEBUG] 2025-04-03 13:57:20.219 [http-nio-8080-exec-5] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
 [DEBUG] 2025-04-03 13:57:20.220 [http-nio-8080-exec-5] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:09.385 [http-nio-8080-exec-6] create - Created new SQL alias : u1_0
+[DEBUG] 2025-04-03 14:04:09.386 [http-nio-8080-exec-6] create - Registration of TableGroup [StandardTableGroup(com.mattbroph.entity.User(154300711922500))] with identifierForTableGroup [com.mattbroph.entity.User] for NavigablePath [com.mattbroph.entity.User] 
+[DEBUG] 2025-04-03 14:04:09.386 [http-nio-8080-exec-6] AST - DomainResult Graph:
+ \-EntityResultImpl [com.mattbroph.entity.User(154300711922500)]
+ |  +-BasicFetch [com.mattbroph.entity.User(154300711922500).dateOfBirth]
+ |  +-BasicFetch [com.mattbroph.entity.User(154300711922500).firstName]
+ |  +-BasicFetch [com.mattbroph.entity.User(154300711922500).lastName]
+ |  +-SelectEagerCollectionFetch [com.mattbroph.entity.User(154300711922500).orders]
+ |  \-BasicFetch [com.mattbroph.entity.User(154300711922500).userName]
+
+[DEBUG] 2025-04-03 14:04:09.386 [http-nio-8080-exec-6] tree - SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (u1 : com.mattbroph.entity.User(154300711922500)) {
+          primaryTableReference : users as u1_0
+        }
+      }
+    }
+
+[DEBUG] 2025-04-03 14:04:09.386 [http-nio-8080-exec-6] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = NORMAL
+[DEBUG] 2025-04-03 14:04:09.387 [http-nio-8080-exec-6] results - Initializer list:
+	  com.mattbroph.entity.User(154300711922500).orders -> SelectEagerCollectionInitializer(com.mattbroph.entity.User(154300711922500).orders)@1102717782 (PluralAttribute(com.mattbroph.entity.User.orders))
+	  com.mattbroph.entity.User(154300711922500) -> EntityResultInitializer(com.mattbroph.entity.User(154300711922500))@79209733 (SingleTableEntityPersister(com.mattbroph.entity.User))
+
+[DEBUG] 2025-04-03 14:04:09.387 [http-nio-8080-exec-6] SQL - select u1_0.id,u1_0.date_of_birth,u1_0.first_name,u1_0.last_name,u1_0.user_name from users u1_0
+[DEBUG] 2025-04-03 14:04:09.392 [http-nio-8080-exec-6] results - Extracted JDBC value [0] - [1]
+[DEBUG] 2025-04-03 14:04:09.392 [http-nio-8080-exec-6] entity - (EntityResultInitializer) Hydrated EntityKey (com.mattbroph.entity.User(154300711922500)): 1
+[DEBUG] 2025-04-03 14:04:09.392 [http-nio-8080-exec-6] collection - (SelectEagerCollectionInitializer) Current row collection key : com.mattbroph.entity.User(154300711922500).orders#1
+[DEBUG] 2025-04-03 14:04:09.392 [http-nio-8080-exec-6] entity - (EntityResultInitializer) Created new entity instance [com.mattbroph.entity.User(154300711922500)#1] : 202924001
+[DEBUG] 2025-04-03 14:04:09.392 [http-nio-8080-exec-6] results - Extracted JDBC value [1] - [1964-04-01]
+[DEBUG] 2025-04-03 14:04:09.392 [http-nio-8080-exec-6] results - Extracted JDBC value [2] - [Larry]
+[DEBUG] 2025-04-03 14:04:09.392 [http-nio-8080-exec-6] results - Extracted JDBC value [3] - [Coyne]
+[DEBUG] 2025-04-03 14:04:09.392 [http-nio-8080-exec-6] results - Extracted JDBC value [4] - [jcoyne]
+[DEBUG] 2025-04-03 14:04:09.393 [http-nio-8080-exec-6] entity - (EntityResultInitializer) Done materializing entityInstance : com.mattbroph.entity.User(154300711922500)#1
+[DEBUG] 2025-04-03 14:04:09.393 [http-nio-8080-exec-6] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@49c9cdcf
+[DEBUG] 2025-04-03 14:04:09.393 [http-nio-8080-exec-6] results - Extracted JDBC value [0] - [2]
+[DEBUG] 2025-04-03 14:04:09.393 [http-nio-8080-exec-6] entity - (EntityResultInitializer) Hydrated EntityKey (com.mattbroph.entity.User(154300711922500)): 2
+[DEBUG] 2025-04-03 14:04:09.393 [http-nio-8080-exec-6] collection - (SelectEagerCollectionInitializer) Current row collection key : com.mattbroph.entity.User(154300711922500).orders#2
+[DEBUG] 2025-04-03 14:04:09.393 [http-nio-8080-exec-6] entity - (EntityResultInitializer) Created new entity instance [com.mattbroph.entity.User(154300711922500)#2] : 1739435064
+[DEBUG] 2025-04-03 14:04:09.394 [http-nio-8080-exec-6] results - Extracted JDBC value [1] - [1988-05-08]
+[DEBUG] 2025-04-03 14:04:09.394 [http-nio-8080-exec-6] results - Extracted JDBC value [2] - [Fred]
+[DEBUG] 2025-04-03 14:04:09.394 [http-nio-8080-exec-6] results - Extracted JDBC value [3] - [Hensen]
+[DEBUG] 2025-04-03 14:04:09.394 [http-nio-8080-exec-6] results - Extracted JDBC value [4] - [fhensen]
+[DEBUG] 2025-04-03 14:04:09.394 [http-nio-8080-exec-6] entity - (EntityResultInitializer) Done materializing entityInstance : com.mattbroph.entity.User(154300711922500)#2
+[DEBUG] 2025-04-03 14:04:09.394 [http-nio-8080-exec-6] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@49c9cdcf
+[DEBUG] 2025-04-03 14:04:09.394 [http-nio-8080-exec-6] results - Extracted JDBC value [0] - [24]
+[DEBUG] 2025-04-03 14:04:09.394 [http-nio-8080-exec-6] entity - (EntityResultInitializer) Hydrated EntityKey (com.mattbroph.entity.User(154300711922500)): 24
+[DEBUG] 2025-04-03 14:04:09.394 [http-nio-8080-exec-6] collection - (SelectEagerCollectionInitializer) Current row collection key : com.mattbroph.entity.User(154300711922500).orders#24
+[DEBUG] 2025-04-03 14:04:09.394 [http-nio-8080-exec-6] entity - (EntityResultInitializer) Created new entity instance [com.mattbroph.entity.User(154300711922500)#24] : 2043741874
+[DEBUG] 2025-04-03 14:04:09.394 [http-nio-8080-exec-6] results - Extracted JDBC value [1] - [1995-06-17]
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] results - Extracted JDBC value [2] - [Bart]
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] results - Extracted JDBC value [3] - [Simpson]
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] results - Extracted JDBC value [4] - [bartSimpson]
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] entity - (EntityResultInitializer) Done materializing entityInstance : com.mattbroph.entity.User(154300711922500)#24
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@49c9cdcf
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] results - Extracted JDBC value [0] - [26]
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] entity - (EntityResultInitializer) Hydrated EntityKey (com.mattbroph.entity.User(154300711922500)): 26
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] collection - (SelectEagerCollectionInitializer) Current row collection key : com.mattbroph.entity.User(154300711922500).orders#26
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] entity - (EntityResultInitializer) Created new entity instance [com.mattbroph.entity.User(154300711922500)#26] : 1949807720
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] results - Extracted JDBC value [1] - [1964-07-20]
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] results - Extracted JDBC value [2] - [Marge]
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] results - Extracted JDBC value [3] - [Simpson]
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] results - Extracted JDBC value [4] - [margeSimpson]
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] entity - (EntityResultInitializer) Done materializing entityInstance : com.mattbroph.entity.User(154300711922500)#26
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@49c9cdcf
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] results - Extracted JDBC value [0] - [32]
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] entity - (EntityResultInitializer) Hydrated EntityKey (com.mattbroph.entity.User(154300711922500)): 32
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] collection - (SelectEagerCollectionInitializer) Current row collection key : com.mattbroph.entity.User(154300711922500).orders#32
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] entity - (EntityResultInitializer) Created new entity instance [com.mattbroph.entity.User(154300711922500)#32] : 204249310
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] results - Extracted JDBC value [1] - [1960-07-18]
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] results - Extracted JDBC value [2] - [Mark]
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] results - Extracted JDBC value [3] - [Jackson]
+[DEBUG] 2025-04-03 14:04:09.395 [http-nio-8080-exec-6] results - Extracted JDBC value [4] - [markJackson]
+[DEBUG] 2025-04-03 14:04:09.396 [http-nio-8080-exec-6] entity - (EntityResultInitializer) Done materializing entityInstance : com.mattbroph.entity.User(154300711922500)#32
+[DEBUG] 2025-04-03 14:04:09.396 [http-nio-8080-exec-6] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@49c9cdcf
+[DEBUG] 2025-04-03 14:04:09.396 [http-nio-8080-exec-6] results - Extracted JDBC value [0] - [34]
+[DEBUG] 2025-04-03 14:04:09.396 [http-nio-8080-exec-6] entity - (EntityResultInitializer) Hydrated EntityKey (com.mattbroph.entity.User(154300711922500)): 34
+[DEBUG] 2025-04-03 14:04:09.396 [http-nio-8080-exec-6] collection - (SelectEagerCollectionInitializer) Current row collection key : com.mattbroph.entity.User(154300711922500).orders#34
+[DEBUG] 2025-04-03 14:04:09.396 [http-nio-8080-exec-6] entity - (EntityResultInitializer) Created new entity instance [com.mattbroph.entity.User(154300711922500)#34] : 858342368
+[DEBUG] 2025-04-03 14:04:09.396 [http-nio-8080-exec-6] results - Extracted JDBC value [1] - [1960-07-16]
+[DEBUG] 2025-04-03 14:04:09.396 [http-nio-8080-exec-6] results - Extracted JDBC value [2] - [Jerry]
+[DEBUG] 2025-04-03 14:04:09.396 [http-nio-8080-exec-6] results - Extracted JDBC value [3] - [Barry]
+[DEBUG] 2025-04-03 14:04:09.396 [http-nio-8080-exec-6] results - Extracted JDBC value [4] - [jBar]
+[DEBUG] 2025-04-03 14:04:09.396 [http-nio-8080-exec-6] entity - (EntityResultInitializer) Done materializing entityInstance : com.mattbroph.entity.User(154300711922500)#34
+[DEBUG] 2025-04-03 14:04:09.396 [http-nio-8080-exec-6] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@49c9cdcf
+[DEBUG] 2025-04-03 14:04:09.397 [http-nio-8080-exec-6] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2025-04-03 14:04:09.397 [http-nio-8080-exec-6] results - Initializer list:
+	  com.mattbroph.entity.User.orders.{element}.user -> EntitySelectFetchInitializer(com.mattbroph.entity.User.orders.{element}.user)@1770703314 (ToOneAttributeMapping(NavigableRole[com.mattbroph.entity.Order.user])@1912533225)
+	  com.mattbroph.entity.User.orders.{element} -> EntityJoinedFetchInitializer(com.mattbroph.entity.User.orders.{element})@843345261 (EntityCollectionPart(com.mattbroph.entity.User.orders#{element})@1189762017)
+	  com.mattbroph.entity.User.orders -> BagInitializer(com.mattbroph.entity.User.orders)@1267404422 (PluralAttribute(com.mattbroph.entity.User.orders))
+
+[DEBUG] 2025-04-03 14:04:09.397 [http-nio-8080-exec-6] SQL - select o1_0.user_id,o1_0.id,o1_0.description from orders o1_0 where o1_0.user_id=?
+[DEBUG] 2025-04-03 14:04:09.399 [http-nio-8080-exec-6] ResultsHelper - Collection fully initialized: [com.mattbroph.entity.User.orders#34]
+[DEBUG] 2025-04-03 14:04:09.399 [http-nio-8080-exec-6] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:09.400 [http-nio-8080-exec-6] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2025-04-03 14:04:09.401 [http-nio-8080-exec-6] results - Initializer list:
+	  com.mattbroph.entity.User.orders.{element}.user -> EntitySelectFetchInitializer(com.mattbroph.entity.User.orders.{element}.user)@603818668 (ToOneAttributeMapping(NavigableRole[com.mattbroph.entity.Order.user])@1912533225)
+	  com.mattbroph.entity.User.orders.{element} -> EntityJoinedFetchInitializer(com.mattbroph.entity.User.orders.{element})@2044337243 (EntityCollectionPart(com.mattbroph.entity.User.orders#{element})@1189762017)
+	  com.mattbroph.entity.User.orders -> BagInitializer(com.mattbroph.entity.User.orders)@1465986463 (PluralAttribute(com.mattbroph.entity.User.orders))
+
+[DEBUG] 2025-04-03 14:04:09.401 [http-nio-8080-exec-6] SQL - select o1_0.user_id,o1_0.id,o1_0.description from orders o1_0 where o1_0.user_id=?
+[DEBUG] 2025-04-03 14:04:09.402 [http-nio-8080-exec-6] ResultsHelper - Collection fully initialized: [com.mattbroph.entity.User.orders#32]
+[DEBUG] 2025-04-03 14:04:09.402 [http-nio-8080-exec-6] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:09.403 [http-nio-8080-exec-6] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2025-04-03 14:04:09.403 [http-nio-8080-exec-6] results - Initializer list:
+	  com.mattbroph.entity.User.orders.{element}.user -> EntitySelectFetchInitializer(com.mattbroph.entity.User.orders.{element}.user)@1054641024 (ToOneAttributeMapping(NavigableRole[com.mattbroph.entity.Order.user])@1912533225)
+	  com.mattbroph.entity.User.orders.{element} -> EntityJoinedFetchInitializer(com.mattbroph.entity.User.orders.{element})@920052421 (EntityCollectionPart(com.mattbroph.entity.User.orders#{element})@1189762017)
+	  com.mattbroph.entity.User.orders -> BagInitializer(com.mattbroph.entity.User.orders)@2005132655 (PluralAttribute(com.mattbroph.entity.User.orders))
+
+[DEBUG] 2025-04-03 14:04:09.403 [http-nio-8080-exec-6] SQL - select o1_0.user_id,o1_0.id,o1_0.description from orders o1_0 where o1_0.user_id=?
+[DEBUG] 2025-04-03 14:04:09.405 [http-nio-8080-exec-6] results - Extracted JDBC value [1] - [6]
+[DEBUG] 2025-04-03 14:04:09.405 [http-nio-8080-exec-6] entity - (EntityJoinedFetchInitializer) Hydrated EntityKey (com.mattbroph.entity.User.orders.{element}): 6
+[DEBUG] 2025-04-03 14:04:09.406 [http-nio-8080-exec-6] results - Extracted JDBC value [0] - [26]
+[DEBUG] 2025-04-03 14:04:09.406 [http-nio-8080-exec-6] collection - (BagInitializer) Current row collection key : com.mattbroph.entity.User.orders#26
+[DEBUG] 2025-04-03 14:04:09.406 [http-nio-8080-exec-6] results - Extracted JDBC value [0] - [26]
+[DEBUG] 2025-04-03 14:04:09.406 [http-nio-8080-exec-6] entity - (EntityJoinedFetchInitializer) Created new entity instance [com.mattbroph.entity.User.orders.{element}#6] : 1624053312
+[DEBUG] 2025-04-03 14:04:09.407 [http-nio-8080-exec-6] results - Extracted JDBC value [0] - [26]
+[DEBUG] 2025-04-03 14:04:09.407 [http-nio-8080-exec-6] entity - (EntitySelectFetchInitializer) Found existing loading entry [com.mattbroph.entity.User.orders.{element}.user#26] - using loading instance
+[DEBUG] 2025-04-03 14:04:09.407 [http-nio-8080-exec-6] collection - (BagInitializer) Responsible for loading collection [com.mattbroph.entity.User.orders#26] : org.hibernate.collection.spi.PersistentBag@2109334861
+[DEBUG] 2025-04-03 14:04:09.407 [http-nio-8080-exec-6] results - Extracted JDBC value [2] - [dog toys]
+[DEBUG] 2025-04-03 14:04:09.408 [http-nio-8080-exec-6] entity - (EntityJoinedFetchInitializer) Done materializing entityInstance : com.mattbroph.entity.User.orders.{element}#6
+[DEBUG] 2025-04-03 14:04:09.408 [http-nio-8080-exec-6] collection - (BagInitializer) Reading element from row for collection [com.mattbroph.entity.User.orders#26] -> org.hibernate.collection.spi.PersistentBag@2109334861
+[DEBUG] 2025-04-03 14:04:09.408 [http-nio-8080-exec-6] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.collection.internal.EagerCollectionAssembler@1d5aca2
+[DEBUG] 2025-04-03 14:04:09.408 [http-nio-8080-exec-6] ResultsHelper - Collection fully initialized: [com.mattbroph.entity.User.orders#26]
+[DEBUG] 2025-04-03 14:04:09.408 [http-nio-8080-exec-6] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:09.409 [http-nio-8080-exec-6] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2025-04-03 14:04:09.409 [http-nio-8080-exec-6] results - Initializer list:
+	  com.mattbroph.entity.User.orders.{element}.user -> EntitySelectFetchInitializer(com.mattbroph.entity.User.orders.{element}.user)@535729771 (ToOneAttributeMapping(NavigableRole[com.mattbroph.entity.Order.user])@1912533225)
+	  com.mattbroph.entity.User.orders.{element} -> EntityJoinedFetchInitializer(com.mattbroph.entity.User.orders.{element})@988930852 (EntityCollectionPart(com.mattbroph.entity.User.orders#{element})@1189762017)
+	  com.mattbroph.entity.User.orders -> BagInitializer(com.mattbroph.entity.User.orders)@847678764 (PluralAttribute(com.mattbroph.entity.User.orders))
+
+[DEBUG] 2025-04-03 14:04:09.409 [http-nio-8080-exec-6] SQL - select o1_0.user_id,o1_0.id,o1_0.description from orders o1_0 where o1_0.user_id=?
+[DEBUG] 2025-04-03 14:04:09.411 [http-nio-8080-exec-6] results - Extracted JDBC value [1] - [5]
+[DEBUG] 2025-04-03 14:04:09.411 [http-nio-8080-exec-6] entity - (EntityJoinedFetchInitializer) Hydrated EntityKey (com.mattbroph.entity.User.orders.{element}): 5
+[DEBUG] 2025-04-03 14:04:09.411 [http-nio-8080-exec-6] results - Extracted JDBC value [0] - [24]
+[DEBUG] 2025-04-03 14:04:09.411 [http-nio-8080-exec-6] collection - (BagInitializer) Current row collection key : com.mattbroph.entity.User.orders#24
+[DEBUG] 2025-04-03 14:04:09.411 [http-nio-8080-exec-6] results - Extracted JDBC value [0] - [24]
+[DEBUG] 2025-04-03 14:04:09.411 [http-nio-8080-exec-6] entity - (EntityJoinedFetchInitializer) Created new entity instance [com.mattbroph.entity.User.orders.{element}#5] : 1347966568
+[DEBUG] 2025-04-03 14:04:09.411 [http-nio-8080-exec-6] results - Extracted JDBC value [0] - [24]
+[DEBUG] 2025-04-03 14:04:09.411 [http-nio-8080-exec-6] entity - (EntitySelectFetchInitializer) Found existing loading entry [com.mattbroph.entity.User.orders.{element}.user#24] - using loading instance
+[DEBUG] 2025-04-03 14:04:09.411 [http-nio-8080-exec-6] collection - (BagInitializer) Responsible for loading collection [com.mattbroph.entity.User.orders#24] : org.hibernate.collection.spi.PersistentBag@2121337842
+[DEBUG] 2025-04-03 14:04:09.411 [http-nio-8080-exec-6] results - Extracted JDBC value [2] - [party supplies]
+[DEBUG] 2025-04-03 14:04:09.411 [http-nio-8080-exec-6] entity - (EntityJoinedFetchInitializer) Done materializing entityInstance : com.mattbroph.entity.User.orders.{element}#5
+[DEBUG] 2025-04-03 14:04:09.412 [http-nio-8080-exec-6] collection - (BagInitializer) Reading element from row for collection [com.mattbroph.entity.User.orders#24] -> org.hibernate.collection.spi.PersistentBag@2121337842
+[DEBUG] 2025-04-03 14:04:09.412 [http-nio-8080-exec-6] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.collection.internal.EagerCollectionAssembler@5703e00a
+[DEBUG] 2025-04-03 14:04:09.412 [http-nio-8080-exec-6] ResultsHelper - Collection fully initialized: [com.mattbroph.entity.User.orders#24]
+[DEBUG] 2025-04-03 14:04:09.412 [http-nio-8080-exec-6] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:09.413 [http-nio-8080-exec-6] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2025-04-03 14:04:09.413 [http-nio-8080-exec-6] results - Initializer list:
+	  com.mattbroph.entity.User.orders.{element}.user -> EntitySelectFetchInitializer(com.mattbroph.entity.User.orders.{element}.user)@1137824443 (ToOneAttributeMapping(NavigableRole[com.mattbroph.entity.Order.user])@1912533225)
+	  com.mattbroph.entity.User.orders.{element} -> EntityJoinedFetchInitializer(com.mattbroph.entity.User.orders.{element})@1326168295 (EntityCollectionPart(com.mattbroph.entity.User.orders#{element})@1189762017)
+	  com.mattbroph.entity.User.orders -> BagInitializer(com.mattbroph.entity.User.orders)@1576164472 (PluralAttribute(com.mattbroph.entity.User.orders))
+
+[DEBUG] 2025-04-03 14:04:09.413 [http-nio-8080-exec-6] SQL - select o1_0.user_id,o1_0.id,o1_0.description from orders o1_0 where o1_0.user_id=?
+[DEBUG] 2025-04-03 14:04:09.415 [http-nio-8080-exec-6] results - Extracted JDBC value [1] - [3]
+[DEBUG] 2025-04-03 14:04:09.416 [http-nio-8080-exec-6] entity - (EntityJoinedFetchInitializer) Hydrated EntityKey (com.mattbroph.entity.User.orders.{element}): 3
+[DEBUG] 2025-04-03 14:04:09.416 [http-nio-8080-exec-6] results - Extracted JDBC value [0] - [2]
+[DEBUG] 2025-04-03 14:04:09.416 [http-nio-8080-exec-6] collection - (BagInitializer) Current row collection key : com.mattbroph.entity.User.orders#2
+[DEBUG] 2025-04-03 14:04:09.416 [http-nio-8080-exec-6] results - Extracted JDBC value [0] - [2]
+[DEBUG] 2025-04-03 14:04:09.416 [http-nio-8080-exec-6] entity - (EntityJoinedFetchInitializer) Created new entity instance [com.mattbroph.entity.User.orders.{element}#3] : 1064682727
+[DEBUG] 2025-04-03 14:04:09.416 [http-nio-8080-exec-6] results - Extracted JDBC value [0] - [2]
+[DEBUG] 2025-04-03 14:04:09.416 [http-nio-8080-exec-6] entity - (EntitySelectFetchInitializer) Found existing loading entry [com.mattbroph.entity.User.orders.{element}.user#2] - using loading instance
+[DEBUG] 2025-04-03 14:04:09.416 [http-nio-8080-exec-6] collection - (BagInitializer) Responsible for loading collection [com.mattbroph.entity.User.orders#2] : org.hibernate.collection.spi.PersistentBag@696516731
+[DEBUG] 2025-04-03 14:04:09.416 [http-nio-8080-exec-6] results - Extracted JDBC value [2] - [work equipment]
+[DEBUG] 2025-04-03 14:04:09.416 [http-nio-8080-exec-6] entity - (EntityJoinedFetchInitializer) Done materializing entityInstance : com.mattbroph.entity.User.orders.{element}#3
+[DEBUG] 2025-04-03 14:04:09.416 [http-nio-8080-exec-6] collection - (BagInitializer) Reading element from row for collection [com.mattbroph.entity.User.orders#2] -> org.hibernate.collection.spi.PersistentBag@696516731
+[DEBUG] 2025-04-03 14:04:09.416 [http-nio-8080-exec-6] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.collection.internal.EagerCollectionAssembler@391ed5d0
+[DEBUG] 2025-04-03 14:04:09.416 [http-nio-8080-exec-6] ResultsHelper - Collection fully initialized: [com.mattbroph.entity.User.orders#2]
+[DEBUG] 2025-04-03 14:04:09.416 [http-nio-8080-exec-6] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:09.417 [http-nio-8080-exec-6] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2025-04-03 14:04:09.418 [http-nio-8080-exec-6] results - Initializer list:
+	  com.mattbroph.entity.User.orders.{element}.user -> EntitySelectFetchInitializer(com.mattbroph.entity.User.orders.{element}.user)@1629330442 (ToOneAttributeMapping(NavigableRole[com.mattbroph.entity.Order.user])@1912533225)
+	  com.mattbroph.entity.User.orders.{element} -> EntityJoinedFetchInitializer(com.mattbroph.entity.User.orders.{element})@337515468 (EntityCollectionPart(com.mattbroph.entity.User.orders#{element})@1189762017)
+	  com.mattbroph.entity.User.orders -> BagInitializer(com.mattbroph.entity.User.orders)@98414420 (PluralAttribute(com.mattbroph.entity.User.orders))
+
+[DEBUG] 2025-04-03 14:04:09.418 [http-nio-8080-exec-6] SQL - select o1_0.user_id,o1_0.id,o1_0.description from orders o1_0 where o1_0.user_id=?
+[DEBUG] 2025-04-03 14:04:09.420 [http-nio-8080-exec-6] results - Extracted JDBC value [1] - [4]
+[DEBUG] 2025-04-03 14:04:09.420 [http-nio-8080-exec-6] entity - (EntityJoinedFetchInitializer) Hydrated EntityKey (com.mattbroph.entity.User.orders.{element}): 4
+[DEBUG] 2025-04-03 14:04:09.421 [http-nio-8080-exec-6] results - Extracted JDBC value [0] - [1]
+[DEBUG] 2025-04-03 14:04:09.421 [http-nio-8080-exec-6] collection - (BagInitializer) Current row collection key : com.mattbroph.entity.User.orders#1
+[DEBUG] 2025-04-03 14:04:09.421 [http-nio-8080-exec-6] results - Extracted JDBC value [0] - [1]
+[DEBUG] 2025-04-03 14:04:09.421 [http-nio-8080-exec-6] entity - (EntityJoinedFetchInitializer) Created new entity instance [com.mattbroph.entity.User.orders.{element}#4] : 1345134619
+[DEBUG] 2025-04-03 14:04:09.421 [http-nio-8080-exec-6] results - Extracted JDBC value [0] - [1]
+[DEBUG] 2025-04-03 14:04:09.421 [http-nio-8080-exec-6] entity - (EntitySelectFetchInitializer) Found existing loading entry [com.mattbroph.entity.User.orders.{element}.user#1] - using loading instance
+[DEBUG] 2025-04-03 14:04:09.421 [http-nio-8080-exec-6] collection - (BagInitializer) Responsible for loading collection [com.mattbroph.entity.User.orders#1] : org.hibernate.collection.spi.PersistentBag@1668710015
+[DEBUG] 2025-04-03 14:04:09.421 [http-nio-8080-exec-6] results - Extracted JDBC value [2] - [paper products]
+[DEBUG] 2025-04-03 14:04:09.421 [http-nio-8080-exec-6] entity - (EntityJoinedFetchInitializer) Done materializing entityInstance : com.mattbroph.entity.User.orders.{element}#4
+[DEBUG] 2025-04-03 14:04:09.421 [http-nio-8080-exec-6] collection - (BagInitializer) Reading element from row for collection [com.mattbroph.entity.User.orders#1] -> org.hibernate.collection.spi.PersistentBag@1668710015
+[DEBUG] 2025-04-03 14:04:09.421 [http-nio-8080-exec-6] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.collection.internal.EagerCollectionAssembler@52fa5aab
+[DEBUG] 2025-04-03 14:04:09.421 [http-nio-8080-exec-6] ResultsHelper - Collection fully initialized: [com.mattbroph.entity.User.orders#1]
+[DEBUG] 2025-04-03 14:04:09.422 [http-nio-8080-exec-6] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:09.423 [http-nio-8080-exec-6] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:09.423 [http-nio-8080-exec-6] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:23.102 [http-nio-8080-exec-10] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2025-04-03 14:04:23.102 [http-nio-8080-exec-10] results - Initializer list:
+	  com.mattbroph.entity.User.orders -> BagInitializer(com.mattbroph.entity.User.orders)@653432817 (PluralAttribute(com.mattbroph.entity.User.orders))
+	  com.mattbroph.entity.User.orders.{element} -> EntityJoinedFetchInitializer(com.mattbroph.entity.User.orders.{element})@1616167248 (EntityCollectionPart(com.mattbroph.entity.User.orders#{element})@1189762017)
+	  com.mattbroph.entity.User -> EntityResultInitializer(com.mattbroph.entity.User)@1149873277 (SingleTableEntityPersister(com.mattbroph.entity.User))
+
+[DEBUG] 2025-04-03 14:04:23.103 [http-nio-8080-exec-10] SQL - select u1_0.id,u1_0.date_of_birth,u1_0.first_name,u1_0.last_name,u1_0.user_name,o1_0.user_id,o1_0.id,o1_0.description from users u1_0 left join orders o1_0 on u1_0.id=o1_0.user_id where u1_0.id=?
+[DEBUG] 2025-04-03 14:04:23.105 [http-nio-8080-exec-10] results - Extracted JDBC value [6] - [6]
+[DEBUG] 2025-04-03 14:04:23.105 [http-nio-8080-exec-10] entity - (EntityJoinedFetchInitializer) Hydrated EntityKey (com.mattbroph.entity.User.orders.{element}): 6
+[DEBUG] 2025-04-03 14:04:23.105 [http-nio-8080-exec-10] entity - (EntityResultInitializer) Hydrated EntityKey (com.mattbroph.entity.User): 26
+[DEBUG] 2025-04-03 14:04:23.105 [http-nio-8080-exec-10] results - Extracted JDBC value [0] - [26]
+[DEBUG] 2025-04-03 14:04:23.106 [http-nio-8080-exec-10] collection - (BagInitializer) Current row collection key : com.mattbroph.entity.User.orders#26
+[DEBUG] 2025-04-03 14:04:23.106 [http-nio-8080-exec-10] results - Extracted JDBC value [5] - [26]
+[DEBUG] 2025-04-03 14:04:23.106 [http-nio-8080-exec-10] entity - (EntityJoinedFetchInitializer) Created new entity instance [com.mattbroph.entity.User.orders.{element}#6] : 144078469
+[DEBUG] 2025-04-03 14:04:23.107 [http-nio-8080-exec-10] entity - (EntityResultInitializer) Created new entity instance [com.mattbroph.entity.User#26] : 2077199518
+[DEBUG] 2025-04-03 14:04:23.107 [http-nio-8080-exec-10] collection - (BagInitializer) Created new collection wrapper [com.mattbroph.entity.User.orders#26] : org.hibernate.collection.spi.PersistentBag@1079443260
+[DEBUG] 2025-04-03 14:04:23.107 [http-nio-8080-exec-10] collection - (BagInitializer) Responsible for loading collection [com.mattbroph.entity.User.orders#26] : org.hibernate.collection.spi.PersistentBag@1079443260
+[DEBUG] 2025-04-03 14:04:23.107 [http-nio-8080-exec-10] results - Extracted JDBC value [7] - [dog toys]
+[DEBUG] 2025-04-03 14:04:23.107 [http-nio-8080-exec-10] entity - (EntityJoinedFetchInitializer) Done materializing entityInstance : com.mattbroph.entity.User.orders.{element}#6
+[DEBUG] 2025-04-03 14:04:23.107 [http-nio-8080-exec-10] collection - (BagInitializer) Reading element from row for collection [com.mattbroph.entity.User.orders#26] -> org.hibernate.collection.spi.PersistentBag@1079443260
+[DEBUG] 2025-04-03 14:04:23.107 [http-nio-8080-exec-10] results - Extracted JDBC value [1] - [1964-07-20]
+[DEBUG] 2025-04-03 14:04:23.107 [http-nio-8080-exec-10] results - Extracted JDBC value [2] - [Marge]
+[DEBUG] 2025-04-03 14:04:23.107 [http-nio-8080-exec-10] results - Extracted JDBC value [3] - [Simpson]
+[DEBUG] 2025-04-03 14:04:23.107 [http-nio-8080-exec-10] results - Extracted JDBC value [4] - [margeSimpson]
+[DEBUG] 2025-04-03 14:04:23.107 [http-nio-8080-exec-10] entity - (EntityResultInitializer) Done materializing entityInstance : com.mattbroph.entity.User#26
+[DEBUG] 2025-04-03 14:04:23.108 [http-nio-8080-exec-10] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@501019e4
+[DEBUG] 2025-04-03 14:04:23.108 [http-nio-8080-exec-10] ResultsHelper - Collection fully initialized: [com.mattbroph.entity.User.orders#26]
+[DEBUG] 2025-04-03 14:04:23.108 [http-nio-8080-exec-10] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:23.109 [http-nio-8080-exec-10] TransactionImpl - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+[DEBUG] 2025-04-03 14:04:23.109 [http-nio-8080-exec-10] TransactionImpl - begin
+[DEBUG] 2025-04-03 14:04:23.110 [http-nio-8080-exec-10] ActionQueue - Executing identity-insert immediately
+[DEBUG] 2025-04-03 14:04:23.110 [http-nio-8080-exec-10] SQL - insert into orders (description,user_id) values (?,?)
+[DEBUG] 2025-04-03 14:04:23.113 [http-nio-8080-exec-10] IdentifierGeneratorHelper - Natively generated identity (com.mattbroph.entity.Order) : 7
+[DEBUG] 2025-04-03 14:04:23.113 [http-nio-8080-exec-10] ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+[DEBUG] 2025-04-03 14:04:23.114 [http-nio-8080-exec-10] ResourceRegistryStandardImpl - Exception clearing maxRows/queryTimeout [You can't operate on a closed Statement!!!]
+[DEBUG] 2025-04-03 14:04:23.114 [http-nio-8080-exec-10] TransactionImpl - committing
+[DEBUG] 2025-04-03 14:04:23.114 [http-nio-8080-exec-10] AbstractFlushingEventListener - Processing flush-time cascades
+[DEBUG] 2025-04-03 14:04:23.114 [http-nio-8080-exec-10] AbstractFlushingEventListener - Dirty checking collections
+[DEBUG] 2025-04-03 14:04:23.115 [http-nio-8080-exec-10] AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+[DEBUG] 2025-04-03 14:04:23.115 [http-nio-8080-exec-10] AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+[DEBUG] 2025-04-03 14:04:23.115 [http-nio-8080-exec-10] EntityPrinter - Listing entities:
+[DEBUG] 2025-04-03 14:04:23.115 [http-nio-8080-exec-10] EntityPrinter - com.mattbroph.entity.Order{description=cat toys, id=7, user=com.mattbroph.entity.User#26}
+[DEBUG] 2025-04-03 14:04:23.156 [http-nio-8080-exec-10] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:23.158 [http-nio-8080-exec-10] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:23.158 [http-nio-8080-exec-10] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2025-04-03 14:04:23.158 [http-nio-8080-exec-10] results - Initializer list:
+	  com.mattbroph.entity.Order -> EntityResultInitializer(com.mattbroph.entity.Order)@1452160570 (SingleTableEntityPersister(com.mattbroph.entity.Order))
+	  com.mattbroph.entity.Order.user -> EntityJoinedFetchInitializer(com.mattbroph.entity.Order.user)@344031730 (ToOneAttributeMapping(NavigableRole[com.mattbroph.entity.Order.user])@1912533225)
+	  com.mattbroph.entity.Order.user.orders -> SelectEagerCollectionInitializer(com.mattbroph.entity.Order.user.orders)@1240898558 (PluralAttribute(com.mattbroph.entity.User.orders))
+
+[DEBUG] 2025-04-03 14:04:23.158 [http-nio-8080-exec-10] SQL - select o1_0.id,o1_0.description,u1_0.id,u1_0.date_of_birth,u1_0.first_name,u1_0.last_name,u1_0.user_name from orders o1_0 left join users u1_0 on u1_0.id=o1_0.user_id where o1_0.id=?
+[DEBUG] 2025-04-03 14:04:23.161 [http-nio-8080-exec-10] results - Extracted JDBC value [2] - [26]
+[DEBUG] 2025-04-03 14:04:23.161 [http-nio-8080-exec-10] entity - (EntityJoinedFetchInitializer) Hydrated EntityKey (com.mattbroph.entity.Order.user): 26
+[DEBUG] 2025-04-03 14:04:23.162 [http-nio-8080-exec-10] entity - (EntityResultInitializer) Hydrated EntityKey (com.mattbroph.entity.Order): 7
+[DEBUG] 2025-04-03 14:04:23.162 [http-nio-8080-exec-10] collection - (SelectEagerCollectionInitializer) Current row collection key : com.mattbroph.entity.Order.user.orders#26
+[DEBUG] 2025-04-03 14:04:23.163 [http-nio-8080-exec-10] entity - (EntityJoinedFetchInitializer) Created new entity instance [com.mattbroph.entity.Order.user#26] : 420783450
+[DEBUG] 2025-04-03 14:04:23.163 [http-nio-8080-exec-10] entity - (EntityResultInitializer) Created new entity instance [com.mattbroph.entity.Order#7] : 1527773446
+[DEBUG] 2025-04-03 14:04:23.163 [http-nio-8080-exec-10] results - Extracted JDBC value [3] - [1964-07-20]
+[DEBUG] 2025-04-03 14:04:23.163 [http-nio-8080-exec-10] results - Extracted JDBC value [4] - [Marge]
+[DEBUG] 2025-04-03 14:04:23.163 [http-nio-8080-exec-10] results - Extracted JDBC value [5] - [Simpson]
+[DEBUG] 2025-04-03 14:04:23.163 [http-nio-8080-exec-10] results - Extracted JDBC value [6] - [margeSimpson]
+[DEBUG] 2025-04-03 14:04:23.163 [http-nio-8080-exec-10] entity - (EntityJoinedFetchInitializer) Done materializing entityInstance : com.mattbroph.entity.Order.user#26
+[DEBUG] 2025-04-03 14:04:23.163 [http-nio-8080-exec-10] results - Extracted JDBC value [1] - [cat toys]
+[DEBUG] 2025-04-03 14:04:23.164 [http-nio-8080-exec-10] entity - (EntityResultInitializer) Done materializing entityInstance : com.mattbroph.entity.Order#7
+[DEBUG] 2025-04-03 14:04:23.164 [http-nio-8080-exec-10] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@2e8e9e52
+[DEBUG] 2025-04-03 14:04:23.164 [http-nio-8080-exec-10] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2025-04-03 14:04:23.164 [http-nio-8080-exec-10] results - Initializer list:
+	  com.mattbroph.entity.User.orders.{element}.user -> EntitySelectFetchInitializer(com.mattbroph.entity.User.orders.{element}.user)@302829740 (ToOneAttributeMapping(NavigableRole[com.mattbroph.entity.Order.user])@1912533225)
+	  com.mattbroph.entity.User.orders.{element} -> EntityJoinedFetchInitializer(com.mattbroph.entity.User.orders.{element})@921685026 (EntityCollectionPart(com.mattbroph.entity.User.orders#{element})@1189762017)
+	  com.mattbroph.entity.User.orders -> BagInitializer(com.mattbroph.entity.User.orders)@1066453709 (PluralAttribute(com.mattbroph.entity.User.orders))
+
+[DEBUG] 2025-04-03 14:04:23.164 [http-nio-8080-exec-10] SQL - select o1_0.user_id,o1_0.id,o1_0.description from orders o1_0 where o1_0.user_id=?
+[DEBUG] 2025-04-03 14:04:23.166 [http-nio-8080-exec-10] results - Extracted JDBC value [1] - [6]
+[DEBUG] 2025-04-03 14:04:23.166 [http-nio-8080-exec-10] entity - (EntityJoinedFetchInitializer) Hydrated EntityKey (com.mattbroph.entity.User.orders.{element}): 6
+[DEBUG] 2025-04-03 14:04:23.166 [http-nio-8080-exec-10] results - Extracted JDBC value [0] - [26]
+[DEBUG] 2025-04-03 14:04:23.166 [http-nio-8080-exec-10] collection - (BagInitializer) Current row collection key : com.mattbroph.entity.User.orders#26
+[DEBUG] 2025-04-03 14:04:23.166 [http-nio-8080-exec-10] results - Extracted JDBC value [0] - [26]
+[DEBUG] 2025-04-03 14:04:23.166 [http-nio-8080-exec-10] entity - (EntityJoinedFetchInitializer) Created new entity instance [com.mattbroph.entity.User.orders.{element}#6] : 2101283468
+[DEBUG] 2025-04-03 14:04:23.166 [http-nio-8080-exec-10] results - Extracted JDBC value [0] - [26]
+[DEBUG] 2025-04-03 14:04:23.166 [http-nio-8080-exec-10] entity - (EntitySelectFetchInitializer) Found existing loading entry [com.mattbroph.entity.User.orders.{element}.user#26] - using loading instance
+[DEBUG] 2025-04-03 14:04:23.166 [http-nio-8080-exec-10] collection - (BagInitializer) Responsible for loading collection [com.mattbroph.entity.User.orders#26] : org.hibernate.collection.spi.PersistentBag@197150420
+[DEBUG] 2025-04-03 14:04:23.166 [http-nio-8080-exec-10] results - Extracted JDBC value [2] - [dog toys]
+[DEBUG] 2025-04-03 14:04:23.166 [http-nio-8080-exec-10] entity - (EntityJoinedFetchInitializer) Done materializing entityInstance : com.mattbroph.entity.User.orders.{element}#6
+[DEBUG] 2025-04-03 14:04:23.166 [http-nio-8080-exec-10] collection - (BagInitializer) Reading element from row for collection [com.mattbroph.entity.User.orders#26] -> org.hibernate.collection.spi.PersistentBag@197150420
+[DEBUG] 2025-04-03 14:04:23.166 [http-nio-8080-exec-10] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.collection.internal.EagerCollectionAssembler@4ad5729f
+[DEBUG] 2025-04-03 14:04:23.167 [http-nio-8080-exec-10] results - Extracted JDBC value [1] - [7]
+[DEBUG] 2025-04-03 14:04:23.167 [http-nio-8080-exec-10] entity - (EntityJoinedFetchInitializer) Hydrated EntityKey (com.mattbroph.entity.User.orders.{element}): 7
+[DEBUG] 2025-04-03 14:04:23.167 [http-nio-8080-exec-10] results - Extracted JDBC value [0] - [26]
+[DEBUG] 2025-04-03 14:04:23.167 [http-nio-8080-exec-10] collection - (BagInitializer) Current row collection key : com.mattbroph.entity.User.orders#26
+[DEBUG] 2025-04-03 14:04:23.167 [http-nio-8080-exec-10] results - Extracted JDBC value [0] - [26]
+[DEBUG] 2025-04-03 14:04:23.167 [http-nio-8080-exec-10] collection - (BagInitializer) Found existing loading collection entry [com.mattbroph.entity.User.orders#26]; using loading collection instance - org.hibernate.collection.spi.PersistentBag@197150420
+[DEBUG] 2025-04-03 14:04:23.167 [http-nio-8080-exec-10] collection - (BagInitializer) Responsible for loading collection [com.mattbroph.entity.User.orders#26] : org.hibernate.collection.spi.PersistentBag@197150420
+[DEBUG] 2025-04-03 14:04:23.167 [http-nio-8080-exec-10] collection - (BagInitializer) Reading element from row for collection [com.mattbroph.entity.User.orders#26] -> org.hibernate.collection.spi.PersistentBag@197150420
+[DEBUG] 2025-04-03 14:04:23.167 [http-nio-8080-exec-10] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.collection.internal.EagerCollectionAssembler@4ad5729f
+[DEBUG] 2025-04-03 14:04:23.167 [http-nio-8080-exec-10] ResultsHelper - Collection fully initialized: [com.mattbroph.entity.User.orders#26]
+[DEBUG] 2025-04-03 14:04:23.167 [http-nio-8080-exec-10] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:23.168 [http-nio-8080-exec-10] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:28.251 [http-nio-8080-exec-8] create - Created new SQL alias : u1_0
+[DEBUG] 2025-04-03 14:04:28.251 [http-nio-8080-exec-8] create - Registration of TableGroup [StandardTableGroup(com.mattbroph.entity.User(154319577720400))] with identifierForTableGroup [com.mattbroph.entity.User] for NavigablePath [com.mattbroph.entity.User] 
+[DEBUG] 2025-04-03 14:04:28.252 [http-nio-8080-exec-8] AST - DomainResult Graph:
+ \-EntityResultImpl [com.mattbroph.entity.User(154319577720400)]
+ |  +-BasicFetch [com.mattbroph.entity.User(154319577720400).dateOfBirth]
+ |  +-BasicFetch [com.mattbroph.entity.User(154319577720400).firstName]
+ |  +-BasicFetch [com.mattbroph.entity.User(154319577720400).lastName]
+ |  +-SelectEagerCollectionFetch [com.mattbroph.entity.User(154319577720400).orders]
+ |  \-BasicFetch [com.mattbroph.entity.User(154319577720400).userName]
+
+[DEBUG] 2025-04-03 14:04:28.252 [http-nio-8080-exec-8] tree - SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (u1 : com.mattbroph.entity.User(154319577720400)) {
+          primaryTableReference : users as u1_0
+        }
+      }
+    }
+
+[DEBUG] 2025-04-03 14:04:28.252 [http-nio-8080-exec-8] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = NORMAL
+[DEBUG] 2025-04-03 14:04:28.252 [http-nio-8080-exec-8] results - Initializer list:
+	  com.mattbroph.entity.User(154319577720400) -> EntityResultInitializer(com.mattbroph.entity.User(154319577720400))@1087691397 (SingleTableEntityPersister(com.mattbroph.entity.User))
+	  com.mattbroph.entity.User(154319577720400).orders -> SelectEagerCollectionInitializer(com.mattbroph.entity.User(154319577720400).orders)@97930491 (PluralAttribute(com.mattbroph.entity.User.orders))
+
+[DEBUG] 2025-04-03 14:04:28.252 [http-nio-8080-exec-8] SQL - select u1_0.id,u1_0.date_of_birth,u1_0.first_name,u1_0.last_name,u1_0.user_name from users u1_0
+[DEBUG] 2025-04-03 14:04:28.255 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [1]
+[DEBUG] 2025-04-03 14:04:28.255 [http-nio-8080-exec-8] entity - (EntityResultInitializer) Hydrated EntityKey (com.mattbroph.entity.User(154319577720400)): 1
+[DEBUG] 2025-04-03 14:04:28.255 [http-nio-8080-exec-8] collection - (SelectEagerCollectionInitializer) Current row collection key : com.mattbroph.entity.User(154319577720400).orders#1
+[DEBUG] 2025-04-03 14:04:28.255 [http-nio-8080-exec-8] entity - (EntityResultInitializer) Created new entity instance [com.mattbroph.entity.User(154319577720400)#1] : 1232852092
+[DEBUG] 2025-04-03 14:04:28.255 [http-nio-8080-exec-8] results - Extracted JDBC value [1] - [1964-04-01]
+[DEBUG] 2025-04-03 14:04:28.255 [http-nio-8080-exec-8] results - Extracted JDBC value [2] - [Larry]
+[DEBUG] 2025-04-03 14:04:28.255 [http-nio-8080-exec-8] results - Extracted JDBC value [3] - [Coyne]
+[DEBUG] 2025-04-03 14:04:28.255 [http-nio-8080-exec-8] results - Extracted JDBC value [4] - [jcoyne]
+[DEBUG] 2025-04-03 14:04:28.255 [http-nio-8080-exec-8] entity - (EntityResultInitializer) Done materializing entityInstance : com.mattbroph.entity.User(154319577720400)#1
+[DEBUG] 2025-04-03 14:04:28.255 [http-nio-8080-exec-8] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@23efb2f4
+[DEBUG] 2025-04-03 14:04:28.255 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [2]
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] entity - (EntityResultInitializer) Hydrated EntityKey (com.mattbroph.entity.User(154319577720400)): 2
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] collection - (SelectEagerCollectionInitializer) Current row collection key : com.mattbroph.entity.User(154319577720400).orders#2
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] entity - (EntityResultInitializer) Created new entity instance [com.mattbroph.entity.User(154319577720400)#2] : 927733299
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] results - Extracted JDBC value [1] - [1988-05-08]
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] results - Extracted JDBC value [2] - [Fred]
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] results - Extracted JDBC value [3] - [Hensen]
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] results - Extracted JDBC value [4] - [fhensen]
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] entity - (EntityResultInitializer) Done materializing entityInstance : com.mattbroph.entity.User(154319577720400)#2
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@23efb2f4
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [24]
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] entity - (EntityResultInitializer) Hydrated EntityKey (com.mattbroph.entity.User(154319577720400)): 24
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] collection - (SelectEagerCollectionInitializer) Current row collection key : com.mattbroph.entity.User(154319577720400).orders#24
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] entity - (EntityResultInitializer) Created new entity instance [com.mattbroph.entity.User(154319577720400)#24] : 2092892780
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] results - Extracted JDBC value [1] - [1995-06-17]
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] results - Extracted JDBC value [2] - [Bart]
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] results - Extracted JDBC value [3] - [Simpson]
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] results - Extracted JDBC value [4] - [bartSimpson]
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] entity - (EntityResultInitializer) Done materializing entityInstance : com.mattbroph.entity.User(154319577720400)#24
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@23efb2f4
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [26]
+[DEBUG] 2025-04-03 14:04:28.256 [http-nio-8080-exec-8] entity - (EntityResultInitializer) Hydrated EntityKey (com.mattbroph.entity.User(154319577720400)): 26
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] collection - (SelectEagerCollectionInitializer) Current row collection key : com.mattbroph.entity.User(154319577720400).orders#26
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] entity - (EntityResultInitializer) Created new entity instance [com.mattbroph.entity.User(154319577720400)#26] : 1974665443
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] results - Extracted JDBC value [1] - [1964-07-20]
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] results - Extracted JDBC value [2] - [Marge]
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] results - Extracted JDBC value [3] - [Simpson]
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] results - Extracted JDBC value [4] - [margeSimpson]
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] entity - (EntityResultInitializer) Done materializing entityInstance : com.mattbroph.entity.User(154319577720400)#26
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@23efb2f4
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [32]
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] entity - (EntityResultInitializer) Hydrated EntityKey (com.mattbroph.entity.User(154319577720400)): 32
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] collection - (SelectEagerCollectionInitializer) Current row collection key : com.mattbroph.entity.User(154319577720400).orders#32
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] entity - (EntityResultInitializer) Created new entity instance [com.mattbroph.entity.User(154319577720400)#32] : 1313035000
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] results - Extracted JDBC value [1] - [1960-07-18]
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] results - Extracted JDBC value [2] - [Mark]
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] results - Extracted JDBC value [3] - [Jackson]
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] results - Extracted JDBC value [4] - [markJackson]
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] entity - (EntityResultInitializer) Done materializing entityInstance : com.mattbroph.entity.User(154319577720400)#32
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@23efb2f4
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [34]
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] entity - (EntityResultInitializer) Hydrated EntityKey (com.mattbroph.entity.User(154319577720400)): 34
+[DEBUG] 2025-04-03 14:04:28.257 [http-nio-8080-exec-8] collection - (SelectEagerCollectionInitializer) Current row collection key : com.mattbroph.entity.User(154319577720400).orders#34
+[DEBUG] 2025-04-03 14:04:28.258 [http-nio-8080-exec-8] entity - (EntityResultInitializer) Created new entity instance [com.mattbroph.entity.User(154319577720400)#34] : 1246944680
+[DEBUG] 2025-04-03 14:04:28.258 [http-nio-8080-exec-8] results - Extracted JDBC value [1] - [1960-07-16]
+[DEBUG] 2025-04-03 14:04:28.258 [http-nio-8080-exec-8] results - Extracted JDBC value [2] - [Jerry]
+[DEBUG] 2025-04-03 14:04:28.258 [http-nio-8080-exec-8] results - Extracted JDBC value [3] - [Barry]
+[DEBUG] 2025-04-03 14:04:28.258 [http-nio-8080-exec-8] results - Extracted JDBC value [4] - [jBar]
+[DEBUG] 2025-04-03 14:04:28.258 [http-nio-8080-exec-8] entity - (EntityResultInitializer) Done materializing entityInstance : com.mattbroph.entity.User(154319577720400)#34
+[DEBUG] 2025-04-03 14:04:28.258 [http-nio-8080-exec-8] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@23efb2f4
+[DEBUG] 2025-04-03 14:04:28.258 [http-nio-8080-exec-8] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2025-04-03 14:04:28.258 [http-nio-8080-exec-8] results - Initializer list:
+	  com.mattbroph.entity.User.orders.{element}.user -> EntitySelectFetchInitializer(com.mattbroph.entity.User.orders.{element}.user)@134386302 (ToOneAttributeMapping(NavigableRole[com.mattbroph.entity.Order.user])@1912533225)
+	  com.mattbroph.entity.User.orders.{element} -> EntityJoinedFetchInitializer(com.mattbroph.entity.User.orders.{element})@1960362025 (EntityCollectionPart(com.mattbroph.entity.User.orders#{element})@1189762017)
+	  com.mattbroph.entity.User.orders -> BagInitializer(com.mattbroph.entity.User.orders)@675019911 (PluralAttribute(com.mattbroph.entity.User.orders))
+
+[DEBUG] 2025-04-03 14:04:28.258 [http-nio-8080-exec-8] SQL - select o1_0.user_id,o1_0.id,o1_0.description from orders o1_0 where o1_0.user_id=?
+[DEBUG] 2025-04-03 14:04:28.260 [http-nio-8080-exec-8] ResultsHelper - Collection fully initialized: [com.mattbroph.entity.User.orders#34]
+[DEBUG] 2025-04-03 14:04:28.261 [http-nio-8080-exec-8] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:28.261 [http-nio-8080-exec-8] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2025-04-03 14:04:28.263 [http-nio-8080-exec-8] results - Initializer list:
+	  com.mattbroph.entity.User.orders.{element}.user -> EntitySelectFetchInitializer(com.mattbroph.entity.User.orders.{element}.user)@1212491897 (ToOneAttributeMapping(NavigableRole[com.mattbroph.entity.Order.user])@1912533225)
+	  com.mattbroph.entity.User.orders.{element} -> EntityJoinedFetchInitializer(com.mattbroph.entity.User.orders.{element})@1256518471 (EntityCollectionPart(com.mattbroph.entity.User.orders#{element})@1189762017)
+	  com.mattbroph.entity.User.orders -> BagInitializer(com.mattbroph.entity.User.orders)@2135716993 (PluralAttribute(com.mattbroph.entity.User.orders))
+
+[DEBUG] 2025-04-03 14:04:28.263 [http-nio-8080-exec-8] SQL - select o1_0.user_id,o1_0.id,o1_0.description from orders o1_0 where o1_0.user_id=?
+[DEBUG] 2025-04-03 14:04:28.263 [http-nio-8080-exec-8] ResultsHelper - Collection fully initialized: [com.mattbroph.entity.User.orders#32]
+[DEBUG] 2025-04-03 14:04:28.263 [http-nio-8080-exec-8] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:28.265 [http-nio-8080-exec-8] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2025-04-03 14:04:28.265 [http-nio-8080-exec-8] results - Initializer list:
+	  com.mattbroph.entity.User.orders.{element}.user -> EntitySelectFetchInitializer(com.mattbroph.entity.User.orders.{element}.user)@344687051 (ToOneAttributeMapping(NavigableRole[com.mattbroph.entity.Order.user])@1912533225)
+	  com.mattbroph.entity.User.orders.{element} -> EntityJoinedFetchInitializer(com.mattbroph.entity.User.orders.{element})@179594750 (EntityCollectionPart(com.mattbroph.entity.User.orders#{element})@1189762017)
+	  com.mattbroph.entity.User.orders -> BagInitializer(com.mattbroph.entity.User.orders)@545079471 (PluralAttribute(com.mattbroph.entity.User.orders))
+
+[DEBUG] 2025-04-03 14:04:28.265 [http-nio-8080-exec-8] SQL - select o1_0.user_id,o1_0.id,o1_0.description from orders o1_0 where o1_0.user_id=?
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] results - Extracted JDBC value [1] - [6]
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] entity - (EntityJoinedFetchInitializer) Hydrated EntityKey (com.mattbroph.entity.User.orders.{element}): 6
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [26]
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] collection - (BagInitializer) Current row collection key : com.mattbroph.entity.User.orders#26
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [26]
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] entity - (EntityJoinedFetchInitializer) Created new entity instance [com.mattbroph.entity.User.orders.{element}#6] : 1906692444
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [26]
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] entity - (EntitySelectFetchInitializer) Found existing loading entry [com.mattbroph.entity.User.orders.{element}.user#26] - using loading instance
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] collection - (BagInitializer) Responsible for loading collection [com.mattbroph.entity.User.orders#26] : org.hibernate.collection.spi.PersistentBag@1256949163
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] results - Extracted JDBC value [2] - [dog toys]
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] entity - (EntityJoinedFetchInitializer) Done materializing entityInstance : com.mattbroph.entity.User.orders.{element}#6
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] collection - (BagInitializer) Reading element from row for collection [com.mattbroph.entity.User.orders#26] -> org.hibernate.collection.spi.PersistentBag@1256949163
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.collection.internal.EagerCollectionAssembler@3b91d47e
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] results - Extracted JDBC value [1] - [7]
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] entity - (EntityJoinedFetchInitializer) Hydrated EntityKey (com.mattbroph.entity.User.orders.{element}): 7
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [26]
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] collection - (BagInitializer) Current row collection key : com.mattbroph.entity.User.orders#26
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [26]
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] entity - (EntityJoinedFetchInitializer) Created new entity instance [com.mattbroph.entity.User.orders.{element}#7] : 208917263
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [26]
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] entity - (EntitySelectFetchInitializer) Found existing loading entry [com.mattbroph.entity.User.orders.{element}.user#26] - using loading instance
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] collection - (BagInitializer) Found existing loading collection entry [com.mattbroph.entity.User.orders#26]; using loading collection instance - org.hibernate.collection.spi.PersistentBag@1256949163
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] collection - (BagInitializer) Responsible for loading collection [com.mattbroph.entity.User.orders#26] : org.hibernate.collection.spi.PersistentBag@1256949163
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] results - Extracted JDBC value [2] - [cat toys]
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] entity - (EntityJoinedFetchInitializer) Done materializing entityInstance : com.mattbroph.entity.User.orders.{element}#7
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] collection - (BagInitializer) Reading element from row for collection [com.mattbroph.entity.User.orders#26] -> org.hibernate.collection.spi.PersistentBag@1256949163
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.collection.internal.EagerCollectionAssembler@3b91d47e
+[DEBUG] 2025-04-03 14:04:28.267 [http-nio-8080-exec-8] ResultsHelper - Collection fully initialized: [com.mattbroph.entity.User.orders#26]
+[DEBUG] 2025-04-03 14:04:28.269 [http-nio-8080-exec-8] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:28.270 [http-nio-8080-exec-8] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2025-04-03 14:04:28.270 [http-nio-8080-exec-8] results - Initializer list:
+	  com.mattbroph.entity.User.orders.{element}.user -> EntitySelectFetchInitializer(com.mattbroph.entity.User.orders.{element}.user)@1255530589 (ToOneAttributeMapping(NavigableRole[com.mattbroph.entity.Order.user])@1912533225)
+	  com.mattbroph.entity.User.orders.{element} -> EntityJoinedFetchInitializer(com.mattbroph.entity.User.orders.{element})@354809706 (EntityCollectionPart(com.mattbroph.entity.User.orders#{element})@1189762017)
+	  com.mattbroph.entity.User.orders -> BagInitializer(com.mattbroph.entity.User.orders)@547550100 (PluralAttribute(com.mattbroph.entity.User.orders))
+
+[DEBUG] 2025-04-03 14:04:28.270 [http-nio-8080-exec-8] SQL - select o1_0.user_id,o1_0.id,o1_0.description from orders o1_0 where o1_0.user_id=?
+[DEBUG] 2025-04-03 14:04:28.272 [http-nio-8080-exec-8] results - Extracted JDBC value [1] - [5]
+[DEBUG] 2025-04-03 14:04:28.272 [http-nio-8080-exec-8] entity - (EntityJoinedFetchInitializer) Hydrated EntityKey (com.mattbroph.entity.User.orders.{element}): 5
+[DEBUG] 2025-04-03 14:04:28.272 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [24]
+[DEBUG] 2025-04-03 14:04:28.272 [http-nio-8080-exec-8] collection - (BagInitializer) Current row collection key : com.mattbroph.entity.User.orders#24
+[DEBUG] 2025-04-03 14:04:28.272 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [24]
+[DEBUG] 2025-04-03 14:04:28.272 [http-nio-8080-exec-8] entity - (EntityJoinedFetchInitializer) Created new entity instance [com.mattbroph.entity.User.orders.{element}#5] : 787439132
+[DEBUG] 2025-04-03 14:04:28.272 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [24]
+[DEBUG] 2025-04-03 14:04:28.272 [http-nio-8080-exec-8] entity - (EntitySelectFetchInitializer) Found existing loading entry [com.mattbroph.entity.User.orders.{element}.user#24] - using loading instance
+[DEBUG] 2025-04-03 14:04:28.272 [http-nio-8080-exec-8] collection - (BagInitializer) Responsible for loading collection [com.mattbroph.entity.User.orders#24] : org.hibernate.collection.spi.PersistentBag@572094237
+[DEBUG] 2025-04-03 14:04:28.272 [http-nio-8080-exec-8] results - Extracted JDBC value [2] - [party supplies]
+[DEBUG] 2025-04-03 14:04:28.273 [http-nio-8080-exec-8] entity - (EntityJoinedFetchInitializer) Done materializing entityInstance : com.mattbroph.entity.User.orders.{element}#5
+[DEBUG] 2025-04-03 14:04:28.273 [http-nio-8080-exec-8] collection - (BagInitializer) Reading element from row for collection [com.mattbroph.entity.User.orders#24] -> org.hibernate.collection.spi.PersistentBag@572094237
+[DEBUG] 2025-04-03 14:04:28.273 [http-nio-8080-exec-8] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.collection.internal.EagerCollectionAssembler@55bbf938
+[DEBUG] 2025-04-03 14:04:28.273 [http-nio-8080-exec-8] ResultsHelper - Collection fully initialized: [com.mattbroph.entity.User.orders#24]
+[DEBUG] 2025-04-03 14:04:28.273 [http-nio-8080-exec-8] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:28.275 [http-nio-8080-exec-8] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2025-04-03 14:04:28.275 [http-nio-8080-exec-8] results - Initializer list:
+	  com.mattbroph.entity.User.orders.{element}.user -> EntitySelectFetchInitializer(com.mattbroph.entity.User.orders.{element}.user)@714149163 (ToOneAttributeMapping(NavigableRole[com.mattbroph.entity.Order.user])@1912533225)
+	  com.mattbroph.entity.User.orders.{element} -> EntityJoinedFetchInitializer(com.mattbroph.entity.User.orders.{element})@1812413224 (EntityCollectionPart(com.mattbroph.entity.User.orders#{element})@1189762017)
+	  com.mattbroph.entity.User.orders -> BagInitializer(com.mattbroph.entity.User.orders)@944539402 (PluralAttribute(com.mattbroph.entity.User.orders))
+
+[DEBUG] 2025-04-03 14:04:28.275 [http-nio-8080-exec-8] SQL - select o1_0.user_id,o1_0.id,o1_0.description from orders o1_0 where o1_0.user_id=?
+[DEBUG] 2025-04-03 14:04:28.277 [http-nio-8080-exec-8] results - Extracted JDBC value [1] - [3]
+[DEBUG] 2025-04-03 14:04:28.278 [http-nio-8080-exec-8] entity - (EntityJoinedFetchInitializer) Hydrated EntityKey (com.mattbroph.entity.User.orders.{element}): 3
+[DEBUG] 2025-04-03 14:04:28.278 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [2]
+[DEBUG] 2025-04-03 14:04:28.278 [http-nio-8080-exec-8] collection - (BagInitializer) Current row collection key : com.mattbroph.entity.User.orders#2
+[DEBUG] 2025-04-03 14:04:28.278 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [2]
+[DEBUG] 2025-04-03 14:04:28.278 [http-nio-8080-exec-8] entity - (EntityJoinedFetchInitializer) Created new entity instance [com.mattbroph.entity.User.orders.{element}#3] : 1409439490
+[DEBUG] 2025-04-03 14:04:28.278 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [2]
+[DEBUG] 2025-04-03 14:04:28.278 [http-nio-8080-exec-8] entity - (EntitySelectFetchInitializer) Found existing loading entry [com.mattbroph.entity.User.orders.{element}.user#2] - using loading instance
+[DEBUG] 2025-04-03 14:04:28.278 [http-nio-8080-exec-8] collection - (BagInitializer) Responsible for loading collection [com.mattbroph.entity.User.orders#2] : org.hibernate.collection.spi.PersistentBag@537132178
+[DEBUG] 2025-04-03 14:04:28.278 [http-nio-8080-exec-8] results - Extracted JDBC value [2] - [work equipment]
+[DEBUG] 2025-04-03 14:04:28.278 [http-nio-8080-exec-8] entity - (EntityJoinedFetchInitializer) Done materializing entityInstance : com.mattbroph.entity.User.orders.{element}#3
+[DEBUG] 2025-04-03 14:04:28.278 [http-nio-8080-exec-8] collection - (BagInitializer) Reading element from row for collection [com.mattbroph.entity.User.orders#2] -> org.hibernate.collection.spi.PersistentBag@537132178
+[DEBUG] 2025-04-03 14:04:28.278 [http-nio-8080-exec-8] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.collection.internal.EagerCollectionAssembler@722f8805
+[DEBUG] 2025-04-03 14:04:28.278 [http-nio-8080-exec-8] ResultsHelper - Collection fully initialized: [com.mattbroph.entity.User.orders#2]
+[DEBUG] 2025-04-03 14:04:28.279 [http-nio-8080-exec-8] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:28.280 [http-nio-8080-exec-8] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2025-04-03 14:04:28.280 [http-nio-8080-exec-8] results - Initializer list:
+	  com.mattbroph.entity.User.orders.{element}.user -> EntitySelectFetchInitializer(com.mattbroph.entity.User.orders.{element}.user)@316134407 (ToOneAttributeMapping(NavigableRole[com.mattbroph.entity.Order.user])@1912533225)
+	  com.mattbroph.entity.User.orders.{element} -> EntityJoinedFetchInitializer(com.mattbroph.entity.User.orders.{element})@2134015363 (EntityCollectionPart(com.mattbroph.entity.User.orders#{element})@1189762017)
+	  com.mattbroph.entity.User.orders -> BagInitializer(com.mattbroph.entity.User.orders)@969842464 (PluralAttribute(com.mattbroph.entity.User.orders))
+
+[DEBUG] 2025-04-03 14:04:28.280 [http-nio-8080-exec-8] SQL - select o1_0.user_id,o1_0.id,o1_0.description from orders o1_0 where o1_0.user_id=?
+[DEBUG] 2025-04-03 14:04:28.282 [http-nio-8080-exec-8] results - Extracted JDBC value [1] - [4]
+[DEBUG] 2025-04-03 14:04:28.282 [http-nio-8080-exec-8] entity - (EntityJoinedFetchInitializer) Hydrated EntityKey (com.mattbroph.entity.User.orders.{element}): 4
+[DEBUG] 2025-04-03 14:04:28.282 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [1]
+[DEBUG] 2025-04-03 14:04:28.283 [http-nio-8080-exec-8] collection - (BagInitializer) Current row collection key : com.mattbroph.entity.User.orders#1
+[DEBUG] 2025-04-03 14:04:28.283 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [1]
+[DEBUG] 2025-04-03 14:04:28.283 [http-nio-8080-exec-8] entity - (EntityJoinedFetchInitializer) Created new entity instance [com.mattbroph.entity.User.orders.{element}#4] : 250376178
+[DEBUG] 2025-04-03 14:04:28.283 [http-nio-8080-exec-8] results - Extracted JDBC value [0] - [1]
+[DEBUG] 2025-04-03 14:04:28.283 [http-nio-8080-exec-8] entity - (EntitySelectFetchInitializer) Found existing loading entry [com.mattbroph.entity.User.orders.{element}.user#1] - using loading instance
+[DEBUG] 2025-04-03 14:04:28.283 [http-nio-8080-exec-8] collection - (BagInitializer) Responsible for loading collection [com.mattbroph.entity.User.orders#1] : org.hibernate.collection.spi.PersistentBag@1639426804
+[DEBUG] 2025-04-03 14:04:28.283 [http-nio-8080-exec-8] results - Extracted JDBC value [2] - [paper products]
+[DEBUG] 2025-04-03 14:04:28.283 [http-nio-8080-exec-8] entity - (EntityJoinedFetchInitializer) Done materializing entityInstance : com.mattbroph.entity.User.orders.{element}#4
+[DEBUG] 2025-04-03 14:04:28.283 [http-nio-8080-exec-8] collection - (BagInitializer) Reading element from row for collection [com.mattbroph.entity.User.orders#1] -> org.hibernate.collection.spi.PersistentBag@1639426804
+[DEBUG] 2025-04-03 14:04:28.283 [http-nio-8080-exec-8] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.collection.internal.EagerCollectionAssembler@522f5dfe
+[DEBUG] 2025-04-03 14:04:28.283 [http-nio-8080-exec-8] ResultsHelper - Collection fully initialized: [com.mattbroph.entity.User.orders#1]
+[DEBUG] 2025-04-03 14:04:28.283 [http-nio-8080-exec-8] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:28.283 [http-nio-8080-exec-8] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2025-04-03 14:04:28.283 [http-nio-8080-exec-8] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
