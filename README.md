@@ -46,7 +46,7 @@ This API uses a simple API key mechanism for authentication (for demonstration p
 Each request must include this API key in the request headers:
 
 * Header: X-API-KEY
-* Value: 123456789
+* Value: Add an api-key value to the properties file
 
 ## Service Endpoints
 
