@@ -54,3 +54,5 @@ fabric.properties
 /src/main/resources/
 
 /src/test/java/resources/
+
+*.cfg.xml
