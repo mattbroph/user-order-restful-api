@@ -26,7 +26,7 @@ public class UserService implements PropertiesLoader {
     private final GenericDao userDao = new GenericDao(User.class);
     private final GenericDao orderDao = new GenericDao(Order.class);
     private final Logger logger = LogManager.getLogger(this.getClass());
-    private final Properties apiKeyProperties = loadProperties("/apiKeys.properties");;
+    private final Properties apiKeyProperties = loadProperties("/apiKeys.properties");
 
 
     /**
